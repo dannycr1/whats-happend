@@ -8,7 +8,7 @@ bubleApp.config(function ($routeProvider) {
         })
      .when("/main", {
          templateUrl: "app/main.html",
-         controller: "RecipeGalleryCtrl"
+         controller: "MainCtrl"
      })
     // .when("/recipes/:recipeIndex", {
     //     templateUrl: "app/recipe/recipeDetails.html",

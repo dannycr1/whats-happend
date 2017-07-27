@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="BubleApp">
 
 <head>
     <title></title>
@@ -21,11 +21,14 @@
 
     <!--App Stuff-->
     <script src="app/app.js"></script>
+    <script src="app/model/buble.js"></script>
+
 
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-controller="TestCtrl">
+    <p>{{buble.name}}</p>
     <div class="jumbotron text-left ">
         <div class="container">
             <h1>What'sHappend</h1>

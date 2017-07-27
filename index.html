@@ -22,42 +22,51 @@
     <!--App Stuff-->
     <script src="app/app.js"></script>
     <script src="app/model/buble.js"></script>
+    <script src="app/home/homeCtrl.js"></script>
+    <script src="app/login/loginCtrl.js"></script>
+    <script src="app/shared/navCtrl.js"></script>
+    <script src="app/model/users.js"></script>
 
 
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body ng-controller="TestCtrl">
-    <p>{{buble.name}}</p>
-    <div class="jumbotron text-left ">
-        <div class="container">
-            <h1>What'sHappend</h1>
-            <!--<a class="btn btn-primary btn-lg" ng-click="login()">Login</a>-->
+
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <!--<a class="navbar-brand" href="#">What's happend</a>-->
         </div>
-    </div>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="date" class="form-control" placeholder="Start Date">
-                        <input type="date" class="form-control" placeholder="End Date">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Start Date">
+                    <input type="date" class="form-control" placeholder="End Date">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
+                <li ng-show="isLoggedIn()"><a href="#!/recipes">menu1</a></li>
+                <li ng-show="isLoggedIn()"><a href="#!/new">menu2</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-hide="isLoggedIn()"><a href="#">Login</a></li>
+                <li ng-show="isLoggedIn()"><a href="#">Logout</a></li>
             </ul>
         </div>
+        <!-- /.navbar-collapse -->
     </nav>
+
+    <ng-view></ng-view>
 
 </body>
 

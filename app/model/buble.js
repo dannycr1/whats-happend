@@ -1,4 +1,4 @@
-// Shared Recipe Constructor
+// Shared Buble Constructor
 bubleApp.factory("Buble", function(){
     function Buble(plainObject) {
         this.user = plainObject.user;

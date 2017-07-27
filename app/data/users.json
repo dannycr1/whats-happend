@@ -1,0 +1,9 @@
+[
+    {
+        "email":"danny@danny.com",
+        "password": "danny",
+        "firstName":"Danny",
+        "lastName": "Croitoru",
+        "data":"app/data/import.json"
+    }
+]

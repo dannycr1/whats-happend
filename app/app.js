@@ -6,10 +6,10 @@ bubleApp.config(function ($routeProvider) {
             templateUrl: "app/home/home.html",
             controller: "HomeCtrl"
         })
-    // .when("/recipes", {
-    //     templateUrl: "app/recipe/recipeGallery.html",
-    //     controller: "RecipeGalleryCtrl"
-    // })
+     .when("/main", {
+         templateUrl: "app/main.html",
+         controller: "RecipeGalleryCtrl"
+     })
     // .when("/recipes/:recipeIndex", {
     //     templateUrl: "app/recipe/recipeDetails.html",
     //     controller: "RecipeDetailsCtrl"

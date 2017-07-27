@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" ng-app="BubleApp">
 
 <head>
@@ -35,11 +35,13 @@
 
 <body ng-controller="TestCtrl">
 
-    <div ng-controller="HomeCtrl">
+    <div ng-controller="HomeCtrl NavCtrl">
         <div class="jumbotron text-left ">
             <div class="container">
                 <h1>What'sHappend</h1>
-                <a class="btn btn-primary btn-lg" ng-click="login()">Login</a>
+                <div ng-hide="isLoggedIn()">
+                    <a class="btn btn-primary btn-lg" ng-click="login()">Login</a>
+                </divng-hide="isLoggedIn()>
             </div>
         </div>
         <nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">

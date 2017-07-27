@@ -20,7 +20,7 @@
         if (user != null) {
             activeUser.login(user);
             $uibModalInstance.close("Logged-in");
-            $location.path("/recipes")
+            $location.path("/main")
         } else {
             $scope.failedAttempt = true;
         }

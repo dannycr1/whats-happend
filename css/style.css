@@ -1,4 +1,16 @@
 .jumbotron {
     background-color:lightgreen; 
     margin-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.navbar-default {
+    background-color: darkgray;
+}
+
+.buble-item {
+    background-color: lightgreen;
+    display: block;
 }

@@ -2,8 +2,26 @@
     {
         "email":"danny@danny.com",
         "password": "danny",
-        "firstName":"Danny",
+        "firstName":"Raya",
         "lastName": "Croitoru",
-        "data":"app/data/import.json"
+        "data":"app/data/import.json",
+        "align": "right"
+    },
+
+        {
+        "email":"alon@alon.com",
+        "password": "alon",
+        "firstName":"אלון דוד",
+        "lastName": "David",
+        "data":"app/data/import.json",
+        "align": "left"
+    },
+            {
+        "email":"frida@frida.com",
+        "password": "frida",
+        "firstName":"שרית קרויטורו",
+        "lastName": "Croitoru",
+        "data":"app/data/import.json",
+        "align": "center"
     }
 ]

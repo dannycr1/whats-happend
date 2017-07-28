@@ -6,6 +6,7 @@ bubleApp.factory("User", function(){
         this.firstName = plainObject.firstName;
         this.lastName = plainObject.lastName;
         this.data = plainObject.data;
+        this.align = plainObject.align;
     };
 
     return User;

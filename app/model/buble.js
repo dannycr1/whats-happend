@@ -4,11 +4,14 @@ bubleApp.factory("Buble", function(){
         this.user = plainObject.user;
         this.date = plainObject.date;
         this.time = plainObject.time;
-        this.content = plainObject.content;   
+        this.content = plainObject.content; 
+          
     };
 
     return Buble;
 });
+
+
 
 
 // need to add index

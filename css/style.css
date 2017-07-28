@@ -10,7 +10,13 @@
     background-color: darkgray;
 }
 
-.buble-item {
+div .buble-item {
     background-color: lightgreen;
-    display: block;
+    display: inline-block;
 }
+
+.well {
+border-radius: 25px;
+float: right;
+}
+

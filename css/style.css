@@ -12,17 +12,21 @@
 
 div .buble-item {
     background-color: lightgreen;
-    display: inline-block;
+     display: inline-block; 
     font-size: 14px; 
+    text-align: right;
 }
 
 .well {
 border-radius: 25px;
-
 }
 
 img {
     height: 30%;
     width: 30%;
+}
+
+.float_fix{
+clear: both;
 }
 

@@ -1,27 +1,30 @@
 [
     {
-        "email":"danny@danny.com",
+        "email": "danny@danny.com",
         "password": "danny",
-        "firstName":"Raya",
+        "firstName": "Raya",
         "lastName": "Croitoru",
-        "data":"app/data/import.json",
-        "align": "right"
+        "data": "app/data/import.json",
+        "align": "right",
+        "user": " דני ק"
     },
-
-        {
-        "email":"alon@alon.com",
+    {
+        "email": "alon@alon.com",
         "password": "alon",
-        "firstName":"אלון דוד",
+        "firstName": "אלון דוד",
         "lastName": "David",
-        "data":"app/data/import.json",
-        "align": "left"
+        "data": "app/data/import.json",
+        "align": "left",
+        "user": " אלון דוד"
     },
-            {
-        "email":"frida@frida.com",
+    {
+        "email": "frida@frida.com",
         "password": "frida",
-        "firstName":"שרית קרויטורו",
+        "firstName": "שרית קרויטורו",
         "lastName": "Croitoru",
-        "data":"app/data/import.json",
-        "align": "center"
+        "data": "app/data/import.json",
+        "align": "center",
+        "user": " שרית קרויטורו"
     }
+    
 ]

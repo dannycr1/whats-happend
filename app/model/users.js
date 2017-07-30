@@ -7,6 +7,7 @@ bubleApp.factory("User", function(){
         this.lastName = plainObject.lastName;
         this.data = plainObject.data;
         this.align = plainObject.align;
+        this.user = plainObject.user;
     };
 
     return User;
@@ -32,10 +33,27 @@ bubleApp.factory("activeUser", function(User){
         return user;
     };
 
+        var getAlign = function() {
+        return user.align;
+    };
+
     return {
         isLoggedIn: isLoggedIn,
         login: login,
         logout: logout,
-        get: get
+        get: get,
+        getAlign: getAlign
+    };   
+});
+
+bubleApp.factory("displayUser", function(User){
+    var user = null;
+
+        var getAlign = function() {
+        return User.align;
+    };
+
+    return {
+        getAlign: getAlign
     };   
 });

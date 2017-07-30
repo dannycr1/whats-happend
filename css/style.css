@@ -13,10 +13,16 @@
 div .buble-item {
     background-color: lightgreen;
     display: inline-block;
+    font-size: 14px; 
 }
 
 .well {
 border-radius: 25px;
-float: right;
+
+}
+
+img {
+    height: 30%;
+    width: 30%;
 }
 

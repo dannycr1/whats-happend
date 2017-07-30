@@ -30,3 +30,7 @@ img {
 clear: both;
 }
 
+@media (min-width: 400px) {
+    .pull-right, .pull-left{
+        float: none;
+    }

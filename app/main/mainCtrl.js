@@ -20,15 +20,15 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
         if (a == "0") {
             console.log("pull-right");
-            return "pull-right"
+            return "right"
         };
         if (a == "1") {
             console.log("pull-left");
-            return "pull-left"
+            return "left"
         };
         console.log("pull-center");
 
-        return "";
+        return "center";
     };
 
     $scope.greetName = activeUser.get().firstName;

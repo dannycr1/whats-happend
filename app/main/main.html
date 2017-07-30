@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" ng-repeat="buble in bubleArr" >
-        <div class="well buble-item pull-right" ng-class="pull-right">
+        <div class="well buble-item pull-right" >
             <div>
                 <h3>{{buble.user}}</h3>
                 <p>{{buble.date}}</p>
@@ -16,4 +16,5 @@
 
     </div>
 
-    <!-- ng-class="userAlign(buble)" -->
+    <!-- ng-class="userAlign(buble)" -->    
+    <!-- (userAlign(buble) == 'right') ? 'pull-right' : 'pull-left'  -->

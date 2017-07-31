@@ -28,7 +28,6 @@ img {
 
 .float_fix{
 clear: both;
-float: none;
 }
 
 @media (min-width: 400px) {

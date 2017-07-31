@@ -6,7 +6,7 @@
         "lastName": "Croitoru",
         "data": "app/data/import.json",
         "align": "right",
-        "user": " דני ק"
+        "userName": " דני ק"
     },
     {
         "email": "alon@alon.com",
@@ -15,7 +15,7 @@
         "lastName": "David",
         "data": "app/data/import.json",
         "align": "left",
-        "user": " אלון דוד"
+        "userName": " אלון דוד"
     },
     {
         "email": "frida@frida.com",
@@ -23,8 +23,92 @@
         "firstName": "שרית קרויטורו",
         "lastName": "Croitoru",
         "data": "app/data/import.json",
-        "align": "center",
-        "user": " שרית קרויטורו"
+        "align": "right",
+        "userName": " שרית קרויטורו"
+    },
+        {
+        "email": "danny@danny.com",
+        "password": "danny",
+        "firstName": "Raya",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " Raya"
+    },
+    {
+        "email": "alon@alon.com",
+        "password": "alon",
+        "firstName": "אלון דוד",
+        "lastName": "David",
+        "data": "app/data/import.json",
+        "align": "right",
+        "userName": " Sweet Hila Croitoru"
+    },
+    {
+        "email": "frida@frida.com",
+        "password": "frida",
+        "firstName": "שרית קרויטורו",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " פרידה"
+
     }
-    
+    ,
+        {
+        "email": "danny@danny.com",
+        "password": "danny",
+        "firstName": "Raya",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " צביקה"
+    },
+    {
+        "email": "alon@alon.com",
+        "password": "alon",
+        "firstName": "אלון דוד",
+        "lastName": "David",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " Zalman"
+    },
+    {
+        "email": "frida@frida.com",
+        "password": "frida",
+        "firstName": "שרית קרויטורו",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " דוד ירון"
+        
+    }
+        ,
+        {
+        "email": "danny@danny.com",
+        "password": "danny",
+        "firstName": "Raya",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " רותם קרויטורו"
+    },
+    {
+        "email": "alon@alon.com",
+        "password": "alon",
+        "firstName": "אלון דוד",
+        "lastName": "David",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " Zalman"
+    },
+    {
+        "email": "frida@frida.com",
+        "password": "frida",
+        "firstName": "שרית קרויטורו",
+        "lastName": "Croitoru",
+        "data": "app/data/import.json",
+        "align": "left",
+        "userName": " דוד ירון"
+    }
 ]

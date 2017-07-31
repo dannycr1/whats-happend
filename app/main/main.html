@@ -1,8 +1,8 @@
 <div class="container">
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr">
-        <div ng-show="isRightAlign()" class="well buble-item pull-right float_fix">
-            <div>
+        <div ng-show="isRightAlign($index)" class="well buble-item pull-right float_fix" >
+            <div >
                 <h3>{{buble.user}}</h3>
                 <p>{{buble.date}}</p>
                 <p>{{buble.time}}</p>
@@ -12,8 +12,8 @@
             </div>
         </div>
 
-        <div ng-show="isRightAlign()" class="well buble-item pull-left float_fix">
-            <div>
+        <div ng-hide="isRightAlign($index)" class="well buble-item pull-left float_fix" >
+            <div >
                 <h3>{{buble.user}}</h3>
                 <p>{{buble.date}}</p>
                 <p>{{buble.time}}</p>

@@ -60,6 +60,11 @@ bubleApp.factory("bubles", function (Buble) {
         return bubleArr[index].media == "image" ? true : false;
     }
 
+    var getUser = function (index) {
+        return bubleArr[index].media ;
+    }
+    
+
     return {
         add: add,
         update: update,
@@ -68,6 +73,7 @@ bubleApp.factory("bubles", function (Buble) {
         getAll: getAll,
         get: get,
         removeAll: removeAll,
-        isImage: isImage
+        isImage: isImage,
+        getUser: getUser
     }
 })

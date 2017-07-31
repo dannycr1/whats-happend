@@ -7,7 +7,7 @@ bubleApp.factory("User", function () {
         this.lastName = plainObject.lastName;
         this.data = plainObject.data;
         this.align = plainObject.align;
-        this.user = plainObject.user;
+        this.userName = plainObject.userName;
     };
 
     return User;
@@ -15,59 +15,83 @@ bubleApp.factory("User", function () {
 
 // Service that manges the active user
 bubleApp.factory("activeUser", function (User) {
-    var user = null;
+    var activeuser = null;
 
     var isLoggedIn = function () {
-        return user ? true : false;
+        return activeuser ? true : false;
     };
 
     var login = function (loggedInUser) {
-        user = loggedInUser;
+        activeuser = loggedInUser;
     };
 
     var logout = function () {
-        user = null;
+        activeuser = null;
     };
 
     var get = function () {
-        return user;
+        return activeuser;
     };
 
-    var getAlign = function () {
-        return user.align;
-    };
+    var add = function (user) {
+        userArr.push(user);
+    }
+
+    var update = function (index, user) {
+        userArr[index] = user;
+    }
+
+    var remove = function (index) {
+        userArr.splice(index, 1);
+    }
+
+    var load = function (userPlainObjectArr) {
+        for (var i = 0; i < userPlainObjectArr.length; i++) {
+            userArr.push(new Buble(userPlainObjectArr[i]))
+        }
+    }
+
+    var getAll = function () {
+        return userArr;
+    }
+
+    var getDisplay = function (index) {
+        return userArr[index];
+    }
+
+    var removeAll = function () {
+        userArr = [];
+    }
 
     return {
         isLoggedIn: isLoggedIn,
         login: login,
         logout: logout,
         get: get,
-        getAlign: getAlign
+        add: add,
+        update: update,
+        remove: remove,
+        load: load,
+        getAll: getAll,
+        getDisplay: getDisplay,
+        removeAll: removeAll,
     };
 });
 
-bubleApp.factory("displayUser", function (User) {
+bubleApp.factory("users", function (User) {
+    var userArr = [];
 
+    var add = function (user) {
+        userArr.push(user);
+    }
 
-    var getAlign = function (user) {
+    var update = function (index, user) {
+        userArr[index] = user;
+    }
 
-        console.log(" in display user function   " + user);
-        var align = "center";
-        console.log(" in display User    " + users);
-        for (displayUser in $scope.users) {
-            console.log(" display user-->  " + displayUser);
-            if (displayUser.user == user) {
-                console.log(" display user align   " + displayUser.align);
-                return displayUser.align
-            }
-        }
-        return align;
-    };
-
-    var setUser = function (displayUser) {
-        return user = displayUser;
-    };
-
+    var remove = function (index) {
+        userArr.splice(index, 1);
+    }
 
     var load = function (userPlainObjectArr) {
         for (var i = 0; i < userPlainObjectArr.length; i++) {
@@ -75,12 +99,31 @@ bubleApp.factory("displayUser", function (User) {
         }
     }
 
+    var getAll = function () {
+        return userArr;
+    }
+
+    var get = function (index) {
+        return userArr[index];
+    }
+
+    var getName = function (index) {
+        return userArr[index].userName;
+    }
+
+    var removeAll = function () {
+        userArr = [];
+    }
 
     return {
-        getAlign: getAlign,
-        setUser: setUser,
-        load: load
-    };
-
+        add: add,
+        update: update,
+        remove: remove,
+        load: load,
+        getAll: getAll,
+        get: get,
+        removeAll: removeAll,
+        getName: getName
+    }
 
 });

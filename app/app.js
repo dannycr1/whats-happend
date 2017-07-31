@@ -21,13 +21,15 @@ bubleApp.config(function ($routeProvider) {
 });
 
 // TODO: Delete this TEST !!!!!!!!!
-bubleApp.controller("TestCtrl", function ($scope, User, activeUser, Buble, bubles) {
+bubleApp.controller("TestCtrl", function ($scope, User, activeUser, Buble, bubles, users) {
         var plainUser = {
         "email": "nir@nir.com",
         "password": "nir123",
         "firstName": "Nir",
         "lastName": "Channes",
-        "data": "nir-recipes.json"
+        "data": "nir-recipes.json",
+        "align": "left",
+        "userName": " אלון דוד"
     }
 
     var user = new User(plainUser);

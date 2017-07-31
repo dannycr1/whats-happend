@@ -1,11 +1,10 @@
-<div class="container" ng-controller="MainCtrl">
+<div class="container xxx" ng-controller="MainCtrl">
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr" ng-click="openBuble($index)">
         <div ng-show="isRightAlign($index)" class="well buble-item pull-right float_fix" >
             <div >
-                <h3>{{buble.user}}</h3>
-                <p>{{buble.date}}</p>
-                <p>{{buble.time}}</p>
+                <h5>{{buble.user}}</h5>
+                <p>{{buble.date}} {{buble.time}}</p>
                 <p ng-hide="isImage($index)">{{buble.content}}</p>
                 <img ng-show="isImage($index)" ng-src={{buble.mediaUrl}} alt="">
 
@@ -14,9 +13,8 @@
 
         <div ng-hide="isRightAlign($index)" class="well buble-item pull-left float_fix" >
             <div >
-                <h3>{{buble.user}}</h3>
-                <p>{{buble.date}}</p>
-                <p>{{buble.time}}</p>
+                <h5>{{buble.user}}</h5>
+                <p>{{buble.date}} {{buble.time}}</p>
                 <p ng-hide="isImage($index)">{{buble.content}}</p>
                 <img ng-show="isImage($index)" ng-src={{buble.mediaUrl}} alt="">
 

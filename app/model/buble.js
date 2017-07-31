@@ -45,14 +45,13 @@ bubleApp.factory("bubles", function (Buble) {
     var load = function (bublePlainObjectArr) {
 
         bubleArr.push(new Buble(bublePlainObjectArr[0]))
-        //bubleArr[i].date = new Date(bublePlainObjectArr[i].date);;
         bubleArr[0].content = "";
         bubleArr[0].user = "DATE";
         bubleArr[0].media = "date";
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
         var d1 = new Date(bublePlainObjectArr[0].date);
-        console.log("After: d1=" + d1);
+        //console.log("After: d1=" + d1);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)
 
@@ -66,17 +65,17 @@ bubleApp.factory("bubles", function (Buble) {
                 bubleArr[bubleArr.length - 2].mediaUrl = "";
                 bubleArr[bubleArr.length - 2].time = "";
                 d1 = new Date(bublePlainObjectArr[i].date);
-                console.log("After: d1=" + d1 + "   d2 =" + d2);
-                console.log(bubleArr[bubleArr.length - 1]);
-                console.log(bubleArr[bubleArr.length]);
-                console.log("length xx" + bubleArr.length);
+                // console.log("After: d1=" + d1 + "   d2 =" + d2);
+                // console.log(bubleArr[bubleArr.length - 1]);
+                // console.log(bubleArr[bubleArr.length]);
+                // console.log("length xx" + bubleArr.length);
             }
             else {
                 bubleArr.push(new Buble(bublePlainObjectArr[i]))
-                console.log("length" + bubleArr.length);
+                //console.log("length" + bubleArr.length);
             }
 
-            console.log(bubleArr[i]);
+            //console.log(bubleArr[i]);
         }
     }
 

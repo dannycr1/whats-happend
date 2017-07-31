@@ -12,13 +12,17 @@
 
 div .buble-item {
     background-color: lightgreen;
-     display: inline-block; 
+    display: inline-block; 
     font-size: 14px; 
     text-align: right;
+    padding: 2px 20px;
+    margin: 5px;
+    line-height: 70%;
 }
 
 .well {
 border-radius: 25px;
+
 }
 
 img {
@@ -30,3 +34,6 @@ img {
 clear: both;
 }
 
+.ng-scope {
+margin: 0px 40px 0px 10px;
+}

@@ -34,6 +34,10 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[index] = buble;
     }
 
+    var updateContent = function (index, newContent) {
+        bubleArr[index].content = newContent;
+    }
+
     var remove = function (index) {
         bubleArr.splice(index, 1);
     }
@@ -68,6 +72,7 @@ bubleApp.factory("bubles", function (Buble) {
     return {
         add: add,
         update: update,
+        updateContent: updateContent,
         remove: remove,
         load: load,
         getAll: getAll,

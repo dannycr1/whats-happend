@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" ng-controller="MainCtrl">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr" ng-click="openBuble($index)">
         <div ng-show="isRightAlign($index)" class="well buble-item pull-right float_fix" >
             <div >
                 <h3>{{buble.user}}</h3>

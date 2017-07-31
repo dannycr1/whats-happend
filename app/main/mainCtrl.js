@@ -14,25 +14,17 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         var align = "right"
         var username = ""
         for (i = 0; i < $scope.userArr.length; i++) {
-            console.log(" chosen bubles.get(index).user:   " + bubles.get(index).user);
             username = $scope.userArr[i].userName;
-            console.log(" chosen $scope.userArr["+i+"].name:   " + username);
-
-            if (bubles.get(index).user == username ) {
-                console.log(" XXXXXXXXXX:   " );
+            if (bubles.get(index).user == username) {
                 align = $scope.userArr[i].align
-                console.log(" chosen align: --->  " + align);
                 continue;
             }
         }
-
         if (align == "right") {
-            console.log("right");
-            return 1;
+            return true;
         }
         else {
-            console.log("left");
-            return 0;
+            return false;
         }
 
     };
@@ -65,5 +57,15 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.openDetails = function (index) {
         $location.path("/bubles/" + index)
+    }
+
+
+    $scope.openBuble = function (index) {
+        console.log("edit buble");
+        console.log(bubles.get(index).content);
+        var newContent = prompt("Please enter your text", bubles.get(index).content);
+        if (newContent != null) {
+            bubles.updateContent(index, newContent);
+        }
     }
 });

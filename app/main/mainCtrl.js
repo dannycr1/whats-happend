@@ -4,10 +4,21 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $location.path("/");
         return;
     }
-    $scope.counter = 0;
+    $scope.a = "true";
 
     $scope.isImage = function (index) {
         return bubles.isImage(index);
+    };
+
+    $scope.isRightAlign = function () {
+        if ($scope.a == "true") {
+            console.log("right");
+            $scope.a = "false";
+            return "true";
+        };
+        console.log("left");
+        $scope.a = "true";
+        return "false";
     };
 
 

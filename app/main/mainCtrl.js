@@ -10,8 +10,8 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         return bubles.isImage(index);
     };
 
-    $scope.isRightAlign = function (index) {
-        var align = "right"
+    $scope.counter = 0;
+    $scope.alignBuble = function (index) {
         var username = ""
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
@@ -21,10 +21,14 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             }
         }
         if (align == "right") {
-            return true;
+            return "pull-right";
+        }
+        else if (align == "left") {
+            return "pull-left";
         }
         else {
-            return false;
+            // center case
+            return "";
         }
 
     };

@@ -32,25 +32,25 @@ bubleApp.controller("TestCtrl", function ($scope, User, activeUser, Buble, buble
         "userName": " אלון דוד"
     }
 
-    var user = new User(plainUser);
+    // var user = new User(plainUser);
 
-    console.log(JSON.stringify(user));
-    console.log(activeUser.isLoggedIn());
-    activeUser.login(user);
-    console.log(JSON.stringify(activeUser.get()));
-    console.log(activeUser.isLoggedIn());
-    activeUser.logout();
-    console.log(activeUser.isLoggedIn());
+    // console.log(JSON.stringify(user));
+    // console.log(activeUser.isLoggedIn());
+    // activeUser.login(user);
+    // console.log(JSON.stringify(activeUser.get()));
+    // console.log(activeUser.isLoggedIn());
+    // activeUser.logout();
+    // console.log(activeUser.isLoggedIn());
     
-    var plainBuble = {
-        "date": "05-02-16",
-        "time": " 14:28:11",
-        "user": " אלון דוד",
-        "content": " 😀😀😀😀😀"
-    }
-    var buble = new Buble(plainBuble);
+    // var plainBuble = {
+    //     "date": "05-02-16",
+    //     "time": " 14:28:11",
+    //     "user": " אלון דוד",
+    //     "content": " 😀😀😀😀😀"
+    // }
+    // var buble = new Buble(plainBuble);
 
-    console.log(JSON.stringify(buble));
+    // console.log(JSON.stringify(buble));
 
 
 });

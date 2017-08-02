@@ -7,17 +7,52 @@ bubleApp.factory("Buble", function () {
         this.content = plainObject.content;
         this.media = "text";
         this.mediaUrl = "";
+        this.bubleHeight = 20;
+
 
         if (String(this.content).indexOf("<‏מצורף>") !== -1) {
             this.media = "image";
             this.mediaUrl = "/app/data/img/" + this.content.replace(" <‏מצורף>", "").replace(" ", "");
             this.content = "";
         }
+        //set bible default size bases on media type 
+        if (this.media === "text") {
+            //  console.log("text");
+            this.bubleHeight = 20;
+        }
+        else if (this.media === "image") {
+            //    console.log("image");
+            var orientation,
+                img = new Image();
+            img.onload = function () {
+                if (img.naturalWidth > img.naturalHeight) {
+                    orientation = 'landscape';
+                    //     console.log("portrait");
+                    this.bubleHeight = 95;
+                } else if (img.naturalWidth < img.naturalHeight) {
+                    orientation = 'portrait';
+                    //    console.log("landscape");
+                    this.bubleHeight = 65;
+                } else {
+                    orientation = 'other';
+                    //    console.log("other");
+                    this.bubleHeight = 20;
+                }
+            }
+            img.src = this.mediaUrl;
+        }
+        else if (this.media === "date") {
+            this.bubleHeight = 10;
+        }
 
-    };
 
+    }
     return Buble;
 });
+
+
+
+
 
 
 
@@ -51,7 +86,6 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
         var d1 = new Date(bublePlainObjectArr[0].date);
-        //console.log("After: d1=" + d1);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)
 
@@ -65,10 +99,6 @@ bubleApp.factory("bubles", function (Buble) {
                 bubleArr[bubleArr.length - 2].mediaUrl = "";
                 bubleArr[bubleArr.length - 2].time = "";
                 d1 = new Date(bublePlainObjectArr[i].date);
-                // console.log("After: d1=" + d1 + "   d2 =" + d2);
-                // console.log(bubleArr[bubleArr.length - 1]);
-                // console.log(bubleArr[bubleArr.length]);
-                // console.log("length xx" + bubleArr.length);
             }
             else {
                 bubleArr.push(new Buble(bublePlainObjectArr[i]))

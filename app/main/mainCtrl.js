@@ -10,14 +10,14 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         return bubles.isImage(index);
     };
 
-    $scope.counter = 0;
     $scope.alignBuble = function (index) {
-        var username = ""
+        var align = "right";
+        var username = "";
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
             if (bubles.get(index).user == username) {
                 align = $scope.userArr[i].align
-                continue;
+                //continue;
             }
         }
         if (align == "right") {
@@ -35,19 +35,26 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.greetName = activeUser.get().firstName;
 
-    pages.load();
 
+
+    $scope.index = 0;
+    var pageIndex = 0;
     // Making sure that we are only loading once
     if (bubles.getAll().length === 0) {
         $scope.bubleArr = [];
         $http.get(activeUser.get().data).then(function (response) {
             bubles.load(response.data);
-            pages.addBuble2Page(bubles); loop
+            pages.addBubleToPage(pageIndex, bubles.findIndex);
             $scope.bubleArr = bubles.getAll();
         });
     } else {
         $scope.bubleArr = bubles.getAll();
     }
+
+    // for (buble in $scope.bubleArr) {
+    //     pages.addBubleToPage(buble);
+    //     console.log("pages  " + JSON.stringify(pages))
+    // }
 
     // Making sure that we are only loading once
     if (users.getAll().length === 0) {
@@ -59,6 +66,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     } else {
         $scope.userArr = users.getAll();
     }
+
 
 
     $scope.openDetails = function (index) {

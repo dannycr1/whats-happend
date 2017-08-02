@@ -6,10 +6,10 @@ bubleApp.config(function ($routeProvider) {
             templateUrl: "app/home/home.html",
             controller: "HomeCtrl"
         })
-     .when("/main", {
-         templateUrl: "app/main/main.html",
-         controller: "MainCtrl"
-     })
+        .when("/main", {
+            templateUrl: "app/main/main.html",
+            controller: "MainCtrl"
+        })
     // .when("/recipes/:recipeIndex", {
     //     templateUrl: "app/recipe/recipeDetails.html",
     //     controller: "RecipeDetailsCtrl"
@@ -21,27 +21,66 @@ bubleApp.config(function ($routeProvider) {
 });
 
 // TODO: Delete this TEST !!!!!!!!!
-bubleApp.controller("TestCtrl", function ($scope, User, activeUser, Buble, bubles, users) {
-        var plainUser = {
-        "email": "nir@nir.com",
-        "password": "nir123",
-        "firstName": "Nir",
-        "lastName": "Channes",
-        "data": "nir-recipes.json",
-        "align": "left",
-        "userName": " אלון דוד"
-    }
+bubleApp.controller("TestCtrl", function ($scope, User, activeUser, Buble, bubles, users, Page, pages) {
+//     var plainUser = {
+//         "email": "nir@nir.com",
+//         "password": "nir123",
+//         "firstName": "Nir",
+//         "lastName": "Channes",
+//         "data": "nir-recipes.json",
+//         "align": "left",
+//         "userName": " אלון דוד"
+//     }
 
-    // var user = new User(plainUser);
+//     var buble = {
+//         "date": "05-02-16",
+//         "time": " 14:32:13",
+//         "user": " שרית קרויטורו",
+//         "content": " כל הכבוד!!🏆🏆🏆👏"
+//     };
 
-    // console.log(JSON.stringify(user));
+//     console.log("buble: " + JSON.stringify(buble))
+
+//     pages.addBubleToPage({
+//         "date": "05-02-16",
+//         "time": " 16:41:41",
+//         "user": " Sweet Hila Croitoru",
+//         "content": " קיבלתי במדעים 100"
+//     });
+//     console.log("after add buble to page buble: " + JSON.stringify(buble))
+//     console.log("after add buble to page buble PAGE: " + JSON.stringify(pages))
+
+
+//     buble.add = {
+//         "date": "05-02-16",
+//         "time": " 16:41:41",
+//         "user": " Sweet Hila Croitoru",
+//         "content": " קיבלתי במדעים 100"
+//     };
+
+//     console.log("buble: " + JSON.stringify(buble))
+// -------------------------------------------------
+//console.log(JSON.stringify(bubles[bubles.length] - 1));
+
+
+    // var page = new Page();
+    // console.log(JSON.stringify(buble[0]));
+
+    // console.log(JSON.stringify(bubles));
+    // pages.addBubleToPage(buble);
+    // pages.addBubleToPage(buble);
+    // console.log(JSON.stringify(pages));
+
+    // var page = new Page();
+    // console.log(JSON.stringify(page));
+
     // console.log(activeUser.isLoggedIn());
     // activeUser.login(user);
     // console.log(JSON.stringify(activeUser.get()));
     // console.log(activeUser.isLoggedIn());
     // activeUser.logout();
     // console.log(activeUser.isLoggedIn());
-    
+
     // var plainBuble = {
     //     "date": "05-02-16",
     //     "time": " 14:28:11",

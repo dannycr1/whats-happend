@@ -9,9 +9,6 @@ bubleApp.factory("Page", function () {
             if (this.currentPageHeight + buble.bubleHeight + 1 < this.maxPageHeight)
             { return true }
             else { return false }
-
-
-
         }
 
     }
@@ -25,15 +22,26 @@ bubleApp.factory("Page", function () {
 bubleApp.factory("pages", function (Page) {
     var pageArr = [];
 
-    var addBuble2Page = function (bubleIndex) {
-        if (addBuble2Page[length-1].addBuble(bubleIndex) == "true") {
-            pageBubleList.push(bublrArr[i]);
-            this.currentPageHeight += pageBubleList[i].sizebubleHeight + 1;
-            console.log("adding buble" + bublrArr[i] + " size" + pageBubleList[i].sizebubleHeight)
-        }
-        else {
-            pageArr.push(new Page());
-             console.log("Crete new page:" + pageArr[length])
+    var addBubleToPage = function (pageIndex ,bubleIndex) {
+        var index = pageIndex;
+
+        {
+            // if (addBubleToPage[length - 1].addBuble(bubleIndex) == "true") {
+            if (true) {
+                pageArr.push(new Page);
+                console.log("pageArr " + JSON.stringify(pageArr));
+                console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
+                pageArr[0].pageBubleList.push(bubleIndex);
+                console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
+                //  this.currentPageHeight += pageBubleList[i].sizebubleHeight + 1;
+                //  console.log("adding buble" + buble + " size" + pageBubleList[i].sizebubleHeight)
+            }
+            else {
+                pageArr.push(new Page());
+                console.log("Crete new page:" + pageArr[length])
+                index++;
+
+            }
         }
 
     }
@@ -75,7 +83,7 @@ bubleApp.factory("pages", function (Page) {
         getAll: getAll,
         get: get,
         removeAll: removeAll,
-        addBuble2Page: addBuble2Page
+        addBubleToPage: addBubleToPage
 
     }
 })

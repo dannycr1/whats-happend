@@ -24,12 +24,18 @@ bubleApp.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $lo
         } else {
             $scope.failedAttempt = true;
         }
-
-
-
-
-        //console.log($scope.email + " " + $scope.password)
     }
+
+    $scope.logout = function () {
+        activeUser.logout();
+        isLoggedIn();
+
+    }
+
+
+
+    //console.log($scope.email + " " + $scope.password)
+
 
     var getLoggedInUser = function () {
         for (var i = 0; i < $scope.users.length; i++) {
@@ -44,5 +50,5 @@ bubleApp.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $lo
         $uibModalInstance.close("User dismissed");
     }
 
-    
+
 });

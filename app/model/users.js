@@ -131,8 +131,8 @@ bubleApp.factory("users", function (User) {
         removeAll: removeAll,
         getName: getName,
         updateStyleSet: updateStyleSet
-        
-        
+
+
     }
 
 });

@@ -1,4 +1,4 @@
-bubleApp.controller("NavCtrl", function ($scope, $filter, activeUser) {
+bubleApp.controller("NavCtrl", function ( $scope, $filter, activeUser) {
 
     //$scope.isLoggedIn = activeUser.isLoggedIn();
     $scope.fromDate = $filter("date")('2016-05-01', 'yyyy-MM-dd');

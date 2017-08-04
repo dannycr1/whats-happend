@@ -1,4 +1,4 @@
-bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages) {
+bubleApp.controller("MainCtrl", function ( $scope, $http, activeUser, $location, $filter, bubles, users, pages) {
     // If the user is not logged in going back to home screen
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
@@ -225,6 +225,8 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         }
     }
 
+    var nav_fromDate = $scope.fromDate;
+    var nav_toDate = $scope.fromDate;
 
 
 });
@@ -234,11 +236,10 @@ bubleApp.filter('dateRange', function () {
     return function (items, fromDate, toDate) {
         var filtered = [];
         //here you will have your desired input
-        console.log(items, fromDate, toDate);
-        //var from_date = Date.parse(fromDate);
-        //var to_date = Date.parse(toDate);
-        var from_date = Date.parse(fromDate);
-        var to_date = Date.parse(toDate);  
+        //console.log(items, fromDate, toDate);
+
+        var from_date = Date.parse(fromDate)-1000;
+        var to_date = Date.parse(toDate)+1000;  
         angular.forEach(items, function (item) {
             if (item.exactDate > from_date && item.exactDate < to_date) {
                 filtered.push(item);

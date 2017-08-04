@@ -7,6 +7,8 @@ bubleApp.factory("Buble", function () {
         this.content = plainObject.content;
         this.media = "text";
         this.mediaUrl = "";
+        this.exactDate = Date.parse(this.date);
+        
         this.bubleHeight = 20;
         this.unique = this.date + this.time;
         // console.log("unique " + this.unique);

@@ -1,7 +1,7 @@
 <div class="container xxx" ng-controller="MainCtrl">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr" ng-dblclick="deleteBuble($index)" > 
-        <!-- ng-click="openBuble($index)" > -->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr" ng-dblclick="addBuble($index)" > 
+        <!-- ng-dblclick="deleteBuble($index)" ng-click="openBuble($index)" > -->
         <div  class="well buble-item float_fix" ng-class="alignBuble($index)">
 
             <div>

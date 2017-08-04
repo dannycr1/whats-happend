@@ -164,6 +164,22 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         console.log("Before" + JSON.stringify($scope.bubleArr[index]));
     }
 
+    $scope.addBuble = function (index) {
+        console.log("Add buble");
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+        var buble = {
+            "date": $scope.bubleArr[index].date,
+            "time": $scope.bubleArr[index].time,
+            "user": $scope.bubleArr[index].user,
+            "content": $scope.bubleArr[index].content,
+            "media": $scope.bubleArr[index].media,
+            "mediaUrl": $scope.bubleArr[index].mediaUrl
+        };
+        bubles.add(index, buble);
+        $scope.openBuble(index)
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+    }
+
     $scope.Elogin = function () {
         //  var user = getLoggedInUser();
         if (user != null) {

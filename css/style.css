@@ -11,7 +11,7 @@
 }
 
 div .buble-item {
-    background-color: lightgreen;
+ 
     display: inline-block; 
     font-size: 14px; 
     text-align: right;
@@ -37,5 +37,41 @@ clear: both;
 .xxx {
 /*margin: 0px 40px 0px 10px;*/
 height: 297mm; 
-background-color: darkolivegreen ;
+background-color: lightgreen ;
+}
+
+.style1 {
+   background-color: olivedrab;
+   color: black;
+
+}
+
+.style2 {
+   background-color: red;
+}
+.style3 {
+   background-color: lightseagreen;
+     color: black;
+}
+.style4 {
+   background-color: gray;
+     color: black;
+}
+
+.style5 {
+   background-color: orange;
+     color: black;
+}
+.style6 {
+   background-color: brown;
+     color: white;
+}
+.style7 {
+   background-color: blueviolet;
+     color: black;
+}
+
+.style8 {
+   background-color: pink;
+     color: black;
 }

@@ -64,7 +64,7 @@ bubleApp.factory("bubles", function (Buble) {
     var bubleArr = [];
 
     var add = function (index, buble) {
-        bubleArr.splice(index+1,0,buble);
+        bubleArr.splice(index + 1, 0, buble);
     }
 
     var update = function (index, buble) {
@@ -95,6 +95,24 @@ bubleApp.factory("bubles", function (Buble) {
     var updateTime = function (index, newContent) {
         bubleArr[index].time = newContent;
     }
+
+    var updateBubleFontColor = function (index, newContent) {
+        bubleArr[index].bubleColor = newContent;
+    }
+
+    var updateBubleBackgroundColor = function (index, newContent) {
+        bubleArr[index].backgroundColor = newContent;
+    }
+
+    var updateBubleBorderColor = function (index, newContent) {
+        bubleArr[index].borderColor = newContent;
+    }
+
+    var updateBubleBorder = function (index, newContent) {
+        bubleArr[index].border = newContent;
+    }
+
+
 
     var remove = function (index) {
         bubleArr.splice(index, 1);
@@ -167,7 +185,7 @@ bubleApp.factory("bubles", function (Buble) {
         updateMediaUrl: updateMediaUrl,
         updateUser: updateUser,
         updateDate: updateDate,
-        updateTime:updateTime,
+        updateTime: updateTime,
         remove: remove,
         load: load,
         getAll: getAll,
@@ -175,6 +193,12 @@ bubleApp.factory("bubles", function (Buble) {
         removeAll: removeAll,
         isImage: isImage,
         getUser: getUser,
-        getUnique: getUnique
+        getUnique: getUnique,
+        updateBubleFontColor: updateBubleFontColor,
+        updateBubleBackgroundColor: updateBubleBackgroundColor,
+        updateBubleBorderColor: updateBubleBorderColor,
+        updateBubleBorder: updateBubleBorder
+
+
     }
 })

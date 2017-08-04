@@ -8,6 +8,8 @@ bubleApp.factory("User", function () {
         this.data = plainObject.data;
         this.align = plainObject.align;
         this.userName = plainObject.userName;
+        this.styleSet = "1";
+
     };
 
     return User;
@@ -89,6 +91,10 @@ bubleApp.factory("users", function (User) {
         userArr[index] = user;
     }
 
+    var updateStyleSet = function (index, style) {
+        userArr[index].styleSet = style;
+    }
+
     var remove = function (index) {
         userArr.splice(index, 1);
     }
@@ -123,7 +129,10 @@ bubleApp.factory("users", function (User) {
         getAll: getAll,
         get: get,
         removeAll: removeAll,
-        getName: getName
+        getName: getName,
+        updateStyleSet: updateStyleSet
+        
+        
     }
 
 });

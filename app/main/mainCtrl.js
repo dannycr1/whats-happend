@@ -16,19 +16,21 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
             if (bubles.get(index).user == username) {
-                align = $scope.userArr[i].align
+                var align = $scope.userArr[i].align
+                var styleSet = $scope.userArr[i].styleSet
+
                 //continue;
             }
         }
         if (align == "right") {
-            return "pull-right";
+            return ("pull-right " + "style" + styleSet);
         }
         else if (align == "left") {
-            return "pull-left";
+            return ("pull-left " + "style" + styleSet);
         }
         else {
             // center case
-            return "";
+            return ("style" + styleSet);
         }
 
     };
@@ -173,12 +175,45 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             "user": $scope.bubleArr[index].user,
             "content": $scope.bubleArr[index].content,
             "media": $scope.bubleArr[index].media,
-            "mediaUrl": $scope.bubleArr[index].mediaUrl
+            "mediaUrl": $scope.bubleArr[index].mediaUrl,
+            "styleSet": $scope.bubleArr[index].styleSet
         };
         bubles.add(index, buble);
         $scope.openBuble(index)
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+        console.log("After" + JSON.stringify($scope.bubleArr[index]));
     }
+
+    $scope.setUserStyle = function (index) {
+        console.log("Set user style");
+
+        var username = "";
+        for (i = 0; i < $scope.userArr.length; i++) {
+            username = $scope.userArr[i].userName;
+            if (bubles.get(index).user == username) {
+
+                var align = $scope.userArr[i].align
+                var styleSet = $scope.userArr[i].styleSet
+                var newIndex = i;
+            }
+        }
+
+        console.log("Before " + JSON.stringify($scope.userArr[newIndex]));
+
+        var styleSet = $scope.userArr[newIndex].styleSet;
+        //     }
+        // }
+        var newContent = prompt("Please enter styleSet 1-8", styleSet);
+        if ((newContent >= 1) && (newContent <= 8)) {
+            users.updateStyleSet(newIndex, newContent);
+        }
+        else {
+            newContent = styleSet;
+        }
+
+        console.log("After" + JSON.stringify($scope.userArr[newIndex]));
+
+    }
+
 
     $scope.Elogin = function () {
         //  var user = getLoggedInUser();

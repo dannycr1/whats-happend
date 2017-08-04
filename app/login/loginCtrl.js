@@ -1,4 +1,4 @@
- bubleApp.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $location, activeUser, User) {
+bubleApp.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $location, activeUser, User) {
 
     // TODO: Detele this
     // $scope.email = "nir@nir.com";
@@ -15,7 +15,7 @@
 
     $scope.failedAttempt = false;
 
-    $scope.login = function() {
+    $scope.login = function () {
         var user = getLoggedInUser();
         if (user != null) {
             activeUser.login(user);
@@ -31,7 +31,7 @@
         //console.log($scope.email + " " + $scope.password)
     }
 
-    var getLoggedInUser = function() {
+    var getLoggedInUser = function () {
         for (var i = 0; i < $scope.users.length; i++) {
             if ($scope.users[i].email === $scope.email && $scope.users[i].password === $scope.password) {
                 return $scope.users[i];
@@ -43,4 +43,6 @@
     $scope.dismiss = function () {
         $uibModalInstance.close("User dismissed");
     }
+
+    
 });

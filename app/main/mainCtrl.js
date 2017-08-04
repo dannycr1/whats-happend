@@ -4,7 +4,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $location.path("/");
         return;
     }
-    $scope.a = "true";
+    //$scope.a = "true";
 
     $scope.isImage = function (index) {
         return bubles.isImage(index);
@@ -39,33 +39,66 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.index = 0;
     var pageIndex = 0;
-    // Making sure that we are only loading once
+    // Making sure that we are only loading once - BUBLEs
     if (bubles.getAll().length === 0) {
         $scope.bubleArr = [];
         $http.get(activeUser.get().data).then(function (response) {
             bubles.load(response.data);
-            pages.addBubleToPage(pageIndex, bubles.findIndex);
             $scope.bubleArr = bubles.getAll();
         });
     } else {
         $scope.bubleArr = bubles.getAll();
     }
 
-    // for (buble in $scope.bubleArr) {
-    //     pages.addBubleToPage(buble);
-    //     console.log("pages  " + JSON.stringify(pages))
-    // }
-
-    // Making sure that we are only loading once
+    // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {
         $scope.userArr = [];
         $http.get("/app/data/users.json").then(function (response) {
             users.load(response.data);
             $scope.userArr = users.getAll();
+            // pages.addBubleToPage(pageIndex, bubles);
+
+            // if (true) {
+            //     pages.addPage();
+            //     pages.addBubleToPage({
+            //         "date": "05-02-16",
+            //         "time": " 16:41:41",
+            //         "user": " Sweet Hila Croitoru",
+            //         "content": " קיבלתי במדעים 100"
+            //     });
+
+            //    // console.log("after add buble to page buble: " + JSON.stringify(buble))
+            //     console.log("after add buble to page buble PAGE: " + JSON.stringify(pages))
+
+
+
+            //     console.log("pages length " + pages.length);
+            //     console.log("pages " + + JSON.stringify(pages));
+
+
+            //     pageArr[0].pageBubleList.push(bubleIndex);
+            //     console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
+            //     //  this.currentPageHeight += pageBubleList[i].sizebubleHeight + 1;
+            //     //  console.log("adding buble" + buble + " size" + pageBubleList[i].sizebubleHeight)
+            // }
+            // else {
+            //     pageArr.push(new Page());
+            //     console.log("Crete new page:" + pageArr[length])
+            //     index++;
+
+            // }
+
         });
     } else {
         $scope.userArr = users.getAll();
+        pages.addBubleToPage(pageIndex, bubles);
     }
+    // $scope.bubleArr = bubles.getAll();
+    // var w = bubles.get(0)
+    // console.log("bubleArr[0] " + JSON.stringify(w));
+    // var q = bubles.getUnique(0);
+    // console.log("bubles " + + JSON.stringify(q));
+    // console.log("$scope.bubleArrr[0] " + $scope.bubleArr[0]);
 
 
 
@@ -75,11 +108,70 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
 
     $scope.openBuble = function (index) {
-        console.log("edit buble");
-        console.log(bubles.get(index).content);
-        var newContent = prompt("Please enter your text", bubles.get(index).content);
-        if (newContent != null) {
-            bubles.updateContent(index, newContent);
+        console.log("Open buble");
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+
+        var newMedia = prompt("Define buble type - image / text / date", bubles.get(index).media);
+        if (bubles.get(index).media === "date") {
+            var newContent = prompt("Please enter user", bubles.get(index).user);
+            if (newContent != null) {
+                bubles.updateUser(index, newContent);
+                var newContent = prompt("Please enter time", bubles.get(index).time);
+                if (newContent != null) {
+                    bubles.updateTime(index, newContent);
+                }
+            }
+        }
+
+
+        if (newMedia === "text") {
+            var newContent = prompt("Please enter your text", bubles.get(index).content);
+            if (newContent != null) {
+                bubles.updateContent(index, newContent);
+                bubles.updateMedia(index, newMedia);
+            }
+        }
+        else if (newMedia === "image") {
+            var newContent = prompt("Please enter url", bubles.get(index).mediaUrl);
+            if (newContent != null) {
+                bubles.updateMediaUrl(index, newContent);
+                bubles.updateMedia(index, "image");
+            }
+
+        }
+
+        else if (newMedia === "date") {
+            var newContent = prompt("Please enter Date", bubles.get(index).date);
+            if (newContent != null) {
+                bubles.updateDate(index, newContent);
+                bubles.updateMedia(index, newMedia);
+                bubles.updateContent(index, "");
+            }
+
+        }
+        else {
+
+        }
+        console.log("After" + JSON.stringify($scope.bubleArr[index]));
+
+
+    }
+
+    $scope.deleteBuble = function (index) {
+        console.log("Delete buble");
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+        bubles.remove(index);
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+    }
+
+    $scope.Elogin = function () {
+        //  var user = getLoggedInUser();
+        if (user != null) {
+            activeUser.login(user);
+            $location.path("/main")
+        } else {
+            $scope.failedAttempt = true;
         }
     }
+
 });

@@ -8,6 +8,8 @@ bubleApp.factory("Buble", function () {
         this.media = "text";
         this.mediaUrl = "";
         this.bubleHeight = 20;
+        this.unique = this.date + this.time;
+        // console.log("unique " + this.unique);
 
 
         if (String(this.content).indexOf("<‏מצורף>") !== -1) {
@@ -73,6 +75,27 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[index].content = newContent;
     }
 
+    var updateUser = function (index, newContent) {
+        bubleArr[index].user = newContent;
+    }
+    var updateMedia = function (index, newContent) {
+        bubleArr[index].media = newContent;
+    }
+
+    var updateMediaUrl = function (index, newContent) {
+        bubleArr[index].mediaUrl = newContent;
+        bubleArr[index].content = "";
+    }
+
+    var updateDate = function (index, newContent) {
+        bubleArr[index].date = newContent;
+        bubleArr[index].user = "DATE";
+        bubleArr[index].time = "";
+    }
+    var updateTime = function (index, newContent) {
+        bubleArr[index].time = newContent;
+    }
+
     var remove = function (index) {
         bubleArr.splice(index, 1);
     }
@@ -85,6 +108,7 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[0].media = "date";
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
+        bubleArr[0].unique = bubleArr[0].date + bubleArr[0].time;
         var d1 = new Date(bublePlainObjectArr[0].date);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)
@@ -98,6 +122,7 @@ bubleApp.factory("bubles", function (Buble) {
                 bubleArr[bubleArr.length - 2].media = "date";
                 bubleArr[bubleArr.length - 2].mediaUrl = "";
                 bubleArr[bubleArr.length - 2].time = "";
+                bubleArr[bubleArr.length - 2].unique = bubleArr[bubleArr.length - 2].date + bubleArr[bubleArr.length - 2].time;
                 d1 = new Date(bublePlainObjectArr[i].date);
             }
             else {
@@ -129,17 +154,27 @@ bubleApp.factory("bubles", function (Buble) {
         return bubleArr[index].media;
     }
 
+    var getUnique = function (index) {
+        return bubleArr[index].unique;
+    }
+
 
     return {
         add: add,
         update: update,
         updateContent: updateContent,
+        updateMedia: updateMedia,
+        updateMediaUrl: updateMediaUrl,
+        updateUser: updateUser,
+        updateDate: updateDate,
+        updateTime:updateTime,
         remove: remove,
         load: load,
         getAll: getAll,
         get: get,
         removeAll: removeAll,
         isImage: isImage,
-        getUser: getUser
+        getUser: getUser,
+        getUnique: getUnique
     }
 })

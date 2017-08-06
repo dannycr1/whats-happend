@@ -225,8 +225,8 @@ bubleApp.controller("MainCtrl", function ( $scope, $http, activeUser, $location,
         }
     }
 
-    var nav_fromDate = $scope.fromDate;
-    var nav_toDate = $scope.fromDate;
+    $scope.fromDate = "2016-05-01";
+    $scope.toDate = "2016-07-20";
 
 
 });

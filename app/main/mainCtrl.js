@@ -50,7 +50,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
             pages.addPage();
             pages.setCurrentPageHeight(pageIndex, 0);
-            var len = bubles.getAll().length-1;
+            var len = bubles.getAll().length;
             for (var i = 0; i < len; i++) {
                 if (pages.getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1 > pages.getMaxPageHeight(pageIndex)) {
                     console.log("-------new page -------------");

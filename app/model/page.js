@@ -59,6 +59,10 @@ bubleApp.factory("pages", function (Page) {
     var getMaxPageHeight = function (index) {
         return pageArr[index].maxPageHeight;
     }
+
+    var getpageBubleList = function (index) {
+        return pageArr[index].pageBubleList;
+    }
     var add = function (page) {
         pageArr.push(page);
     }
@@ -99,7 +103,8 @@ bubleApp.factory("pages", function (Page) {
         addPage: addPage,
         setCurrentPageHeight: setCurrentPageHeight,
         getCurrentPageHeight: getCurrentPageHeight,
-        getMaxPageHeight: getMaxPageHeight
+        getMaxPageHeight: getMaxPageHeight,
+        getpageBubleList: getpageBubleList
 
     }
 })

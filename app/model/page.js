@@ -28,7 +28,7 @@ bubleApp.factory("pages", function (Page) {
             //             pageArr.push(new Page);
             //console.log("buble " + buble);
             pageArr[pageIndex].pageBubleList.push(buble);
-            console.log("pageArr " + JSON.stringify(pageArr));
+            //console.log("pageArr " + JSON.stringify(pageArr));
             //console.log("pageBubleList " + JSON.stringify(pageArr[pageIndex].pageBubleList));
         }
         else {

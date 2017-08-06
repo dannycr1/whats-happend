@@ -8,7 +8,7 @@ bubleApp.factory("Buble", function () {
         this.media = "text";
         this.mediaUrl = "";
         this.exactDate = Date.parse(this.date);
-        
+
         this.bubleHeight = 20;
         this.unique = this.date + this.time;
         // console.log("unique " + this.unique);
@@ -20,34 +20,34 @@ bubleApp.factory("Buble", function () {
             this.content = "";
         }
         //set bible default size bases on media type 
-        if (this.media === "text") {
-            //  console.log("text");
-            this.bubleHeight = 20;
-        }
-        else if (this.media === "image") {
-            //    console.log("image");
-            var orientation,
-                img = new Image();
-            img.onload = function () {
-                if (img.naturalWidth > img.naturalHeight) {
-                    orientation = 'landscape';
-                    //     console.log("portrait");
-                    this.bubleHeight = 95;
-                } else if (img.naturalWidth < img.naturalHeight) {
-                    orientation = 'portrait';
-                    //    console.log("landscape");
-                    this.bubleHeight = 65;
-                } else {
-                    orientation = 'other';
-                    //    console.log("other");
-                    this.bubleHeight = 20;
-                }
-            }
-            img.src = this.mediaUrl;
-        }
-        else if (this.media === "date") {
-            this.bubleHeight = 10;
-        }
+        // if (this.media === "text") {
+        //     //  console.log("text");
+        //     this.bubleHeight = 20;
+        // }
+        // else if (this.media === "image") {
+        //     //    console.log("image");
+        //     var orientation,
+        //         img = new Image();
+        //     img.onload = function () {
+        //         if (img.naturalWidth > img.naturalHeight) {
+        //             orientation = 'landscape';
+        //             //     console.log("portrait");
+        //             this.bubleHeight = 95;
+        //         } else if (img.naturalWidth < img.naturalHeight) {
+        //             orientation = 'portrait';
+        //             //    console.log("landscape");
+        //             this.bubleHeight = 65;
+        //         } else {
+        //             orientation = 'other';
+        //             //    console.log("other");
+        //             this.bubleHeight = 20;
+        //         }
+        //     }
+        //     img.src = this.mediaUrl;
+        // }
+        // else if (this.media === "date") {
+        //     this.bubleHeight = 10;
+        // }
 
 
     }
@@ -121,14 +121,13 @@ bubleApp.factory("bubles", function (Buble) {
     }
 
     var load = function (bublePlainObjectArr) {
-
+        bubleArr=[];
         bubleArr.push(new Buble(bublePlainObjectArr[0]))
         bubleArr[0].content = "";
         bubleArr[0].user = "DATE";
         bubleArr[0].media = "date";
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
-        bubleArr[0].unique = bubleArr[0].date + bubleArr[0].time;
         var d1 = new Date(bublePlainObjectArr[0].date);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)
@@ -142,7 +141,6 @@ bubleApp.factory("bubles", function (Buble) {
                 bubleArr[bubleArr.length - 2].media = "date";
                 bubleArr[bubleArr.length - 2].mediaUrl = "";
                 bubleArr[bubleArr.length - 2].time = "";
-                bubleArr[bubleArr.length - 2].unique = bubleArr[bubleArr.length - 2].date + bubleArr[bubleArr.length - 2].time;
                 d1 = new Date(bublePlainObjectArr[i].date);
             }
             else {
@@ -174,8 +172,34 @@ bubleApp.factory("bubles", function (Buble) {
         return bubleArr[index].media;
     }
 
-    var getUnique = function (index) {
-        return bubleArr[index].unique;
+    var getHeight = function (index) {
+        if (bubleArr[index].media === "image") {
+            //    console.log("image");
+            bubleArr[index].bubleHeight = 95;
+            var orientation,
+                img = new Image();
+            img.onload = function () {
+                if (img.naturalWidth > img.naturalHeight) {
+                    orientation = 'landscape';
+                   // console.log("portrait");
+                    bubleArr[index].bubleHeight = 95;
+                } else if (img.naturalWidth < img.naturalHeight) {
+                    orientation = 'portrait';
+                    //console.log("landscape");
+                    bubleArr[index].bubleHeight = 65;
+                } else {
+                    orientation = 'other';
+                    //console.log("other");
+                    bubleArr[index].bubleHeight = 20;
+                }
+            }
+            img.src = bubleArr[index].mediaUrl;
+        }
+        else if (bubleArr[index].media === "date") {
+            bubleArr[index].bubleHeight = 10;
+        }
+
+        return bubleArr[index].bubleHeight;
     }
 
 
@@ -195,7 +219,7 @@ bubleApp.factory("bubles", function (Buble) {
         removeAll: removeAll,
         isImage: isImage,
         getUser: getUser,
-        getUnique: getUnique,
+        getHeight: getHeight,
         updateBubleFontColor: updateBubleFontColor,
         updateBubleBackgroundColor: updateBubleBackgroundColor,
         updateBubleBorderColor: updateBubleBorderColor,

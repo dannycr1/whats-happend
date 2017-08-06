@@ -1,4 +1,4 @@
-bubleApp.controller("NavCtrl", function ( $scope, $filter, activeUser) {
+bubleApp.controller("NavCtrl", function ($scope, $filter, activeUser) {
 
     //$scope.isLoggedIn = activeUser.isLoggedIn();
     $scope.fromDate = $filter("date")('2016-05-01', 'yyyy-MM-dd');
@@ -11,6 +11,15 @@ bubleApp.controller("NavCtrl", function ( $scope, $filter, activeUser) {
     $scope.logout = function () {
         activeUser.logout();
         //$location.path("/")
+
+    }
+
+    $scope.setDate = function (fromDate, toDate) {
+        return RngDate = {"fromDate": fromDate, 
+            "toDate": toDate};
+
+        // $scope.fromDate = $filter("date")(fromDate, 'yyyy-MM-dd');
+        // $scope.toDate = $filter("date")(toDate, 'yyyy-MM-dd');
 
     }
 });

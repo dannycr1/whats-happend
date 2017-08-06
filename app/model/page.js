@@ -5,11 +5,11 @@ bubleApp.factory("Page", function () {
         this.maxPageHeight = 290;
         this.currentPageHeight = 0;
 
-        this.addBuble = function (buble) {
-            if (this.currentPageHeight + buble.bubleHeight + 1 < this.maxPageHeight)
-            { return true }
-            else { return false }
-        }
+        // this.addBuble = function (buble) {
+        //     if (this.currentPageHeight + buble.bubleHeight + 1 < this.maxPageHeight)
+        //     { return true }
+        //     else { return false }
+        // }
 
     }
     return Page;
@@ -22,34 +22,29 @@ bubleApp.factory("Page", function () {
 bubleApp.factory("pages", function (Page) {
     var pageArr = [];
 
-    var addBubleToPage = function (pageIndex ,buble) {
-        var index = pageIndex;
-
-        // {
-        //   // if (addBubleToPage[length - 1].addBuble(bubleIndex) == "true") {
-        //     if (true) {
-        //         pageArr.push(new Page);
-        //         console.log("buble.unique" +  bubles.get(bubleIndex));
-        //         pageArr[pageArr.length-1].pageBubleList = bubles.get(bubleIndex).unique;
-        //         console.log("pageArr " + JSON.stringify(pageArr));
-        //         console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
-        //         pageArr[0].pageBubleList.push(bubleIndex);
-        //         console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
-        //         //  this.currentPageHeight += pageBubleList[i].sizebubleHeight + 1;
-        //         //  console.log("adding buble" + buble + " size" + pageBubleList[i].sizebubleHeight)
-        //     }
-        //     else {
-        //         pageArr.push(new Page());
-        //         console.log("Crete new page:" + pageArr[length])
-        //         index++;
-
-        //     }
-        //}
-
+    var addBubleToPage = function (pageIndex, buble) {
+        //        if (addBubleToPage[length - 1].addBuble(bubleIndex) == "true") {
+        if (true) {
+            //             pageArr.push(new Page);
+            //console.log("buble " + buble);
+            pageArr[pageIndex].pageBubleList.push(buble);
+            console.log("pageArr " + JSON.stringify(pageArr));
+            //console.log("pageBubleList " + JSON.stringify(pageArr[pageIndex].pageBubleList));
+        }
+        else {
+            pageArr.push(new Page());
+            console.log("Crete new page:" + pageArr[length])
+            index++;
+        }
     }
+
+
 
     var addPage = function () {
         pageArr.push(new Page);
+        console.log("pages: " + JSON.stringify(pageArr))
+        return (pageArr.length - 1)
+
     }
 
     var add = function (page) {

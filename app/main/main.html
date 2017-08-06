@@ -1,7 +1,7 @@
 <div class="container xxx" ng-controller="MainCtrl">
 
     <p><input type="date" ng-model="fromDate" value={{fromDate}}></p>
-    <p><input type="date" ng-model="toDate" value={{toDate}}>></p>
+    <p><input type="date" ng-model="toDate" value={{toDate}}></p>
 
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bubleArr | dateRange : fromDate : toDate ">

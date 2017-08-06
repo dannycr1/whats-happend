@@ -1,4 +1,4 @@
-bubleApp.controller("MainCtrl", function ( $scope, $http, activeUser, $location, $filter, bubles, users, pages) {
+bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages) {
     // If the user is not logged in going back to home screen
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
@@ -47,10 +47,21 @@ bubleApp.controller("MainCtrl", function ( $scope, $http, activeUser, $location,
         $http.get(activeUser.get().data).then(function (response) {
             bubles.load(response.data);
             $scope.bubleArr = bubles.getAll();
+            pages.addPage(0);
+            for (var i = 0; i < bubles.getAll().length; i++) {
+                pages.addBubleToPage(0, $scope.bubleArr[i]);
+
+            }
         });
     } else {
         $scope.bubleArr = bubles.getAll();
     }
+            //console.log("pageArr " + JSON.stringify(pageArr));
+
+
+
+
+
 
     // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {
@@ -58,49 +69,14 @@ bubleApp.controller("MainCtrl", function ( $scope, $http, activeUser, $location,
         $http.get("/app/data/users.json").then(function (response) {
             users.load(response.data);
             $scope.userArr = users.getAll();
-            // pages.addBubleToPage(pageIndex, bubles);
-
-            // if (true) {
-            //     pages.addPage();
-            //     pages.addBubleToPage({
-            //         "date": "05-02-16",
-            //         "time": " 16:41:41",
-            //         "user": " Sweet Hila Croitoru",
-            //         "content": " קיבלתי במדעים 100"
-            //     });
-
-            //    // console.log("after add buble to page buble: " + JSON.stringify(buble))
-            //     console.log("after add buble to page buble PAGE: " + JSON.stringify(pages))
-
-
-
-            //     console.log("pages length " + pages.length);
-            //     console.log("pages " + + JSON.stringify(pages));
-
-
-            //     pageArr[0].pageBubleList.push(bubleIndex);
-            //     console.log("pageBubleList " + JSON.stringify(pageArr[index].pageBubleList));
-            //     //  this.currentPageHeight += pageBubleList[i].sizebubleHeight + 1;
-            //     //  console.log("adding buble" + buble + " size" + pageBubleList[i].sizebubleHeight)
-            // }
-            // else {
-            //     pageArr.push(new Page());
-            //     console.log("Crete new page:" + pageArr[length])
-            //     index++;
-
-            // }
-
         });
     } else {
         $scope.userArr = users.getAll();
         pages.addBubleToPage(pageIndex, bubles);
     }
-    // $scope.bubleArr = bubles.getAll();
-    // var w = bubles.get(0)
-    // console.log("bubleArr[0] " + JSON.stringify(w));
-    // var q = bubles.getUnique(0);
-    // console.log("bubles " + + JSON.stringify(q));
-    // console.log("$scope.bubleArrr[0] " + $scope.bubleArr[0]);
+
+
+
 
 
 
@@ -238,8 +214,8 @@ bubleApp.filter('dateRange', function () {
         //here you will have your desired input
         //console.log(items, fromDate, toDate);
 
-        var from_date = Date.parse(fromDate)-1000;
-        var to_date = Date.parse(toDate)+1000;  
+        var from_date = Date.parse(fromDate) - 1000;
+        var to_date = Date.parse(toDate) + 1000;
         angular.forEach(items, function (item) {
             if (item.exactDate > from_date && item.exactDate < to_date) {
                 filtered.push(item);

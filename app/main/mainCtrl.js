@@ -151,11 +151,15 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
 
     $scope.openDetails = function (index) {
-        $location.path("/bubles/" + index)
+
+        console.log("Edit buble");
+        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+        $location.path("/editBuble")
     }
 
 
     $scope.openBuble = function (index) {
+
         console.log("Open buble");
         console.log("Before" + JSON.stringify($scope.bubleArr[index]));
 

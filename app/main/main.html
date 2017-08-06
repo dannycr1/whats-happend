@@ -4,7 +4,7 @@
     <p><input type="date" ng-model="toDate" value={{toDate}}></p>
 
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bublePages[0] | dateRange : fromDate : toDate ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bublePages[3] | dateRange : fromDate : toDate ">
         <!-- ng-dblclick="deleteBuble($index)" ng-click="openBuble($index)" ng-dblclick="addBuble($index)"> "setUserStyle($index)" -->
         <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="openBuble($index)">
 

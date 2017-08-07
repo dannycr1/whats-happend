@@ -2,7 +2,7 @@
 bubleApp.factory("Page", function () {
     function Page() {
         this.pageBubleList = [];
-        this.maxPageHeight = 290;
+        this.maxPageHeight = 310;
         this.currentPageHeight = 0;
 
         // this.addBuble = function (buble) {
@@ -23,11 +23,7 @@ bubleApp.factory("pages", function (Page) {
     var pageArr = [];
 
     var addBubleToPage = function (pageIndex, buble) {
-
         pageArr[pageIndex].pageBubleList.push(buble);
-
-
-
     }
 
 

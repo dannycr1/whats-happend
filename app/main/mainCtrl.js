@@ -109,7 +109,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         });
     } else {
         $scope.userArr = users.getAll();
-        pages.addBubleToPage(pageIndex, bubles);
+       // pages.addBubleToPage(pageIndex, bubles);
     }
 
 

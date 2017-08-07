@@ -16,7 +16,7 @@ div .buble-item {
     font-size: 14px; 
     text-align: right;
     padding: 0px 20px;
-    margin: 1px;
+    margin: 1px 0 0 0;
     line-height: 70%;
 }
 
@@ -83,6 +83,7 @@ background-color: lightgreen ;
 }
 
 .editBuble{
-    width: 300px;
+    width: 700px;
+    align-self: 10;
     
 }

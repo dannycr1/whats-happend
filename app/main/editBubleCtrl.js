@@ -19,7 +19,11 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
   }
 
   $scope.cancelEditBuble = function () {
-    bubleArr=[];
+    $scope.bubleArr = [];
+    $scope.pageArr = [];
+    $scope.userArr = []
+    bubles.removeAll();
+    pages.removeAll();
     $location.path("/main")
   }
 

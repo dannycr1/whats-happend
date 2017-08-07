@@ -1,4 +1,4 @@
-<div class="container xxx">
+<div class="container">
 
     <div class="toNav">
         <input type="date" ng-model="fromDate" value={{fromDate}}>
@@ -8,17 +8,18 @@
         <button href="#" ng-click="displayPageIndex(1)">Next</button>
     </div>
 
+    <div class="xxx">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix " ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
+            <!-- ng-dblclick="deleteBuble($index)" ng-click="openBuble($index)" ng-dblclick="addBuble($index)"> "setUserStyle($index)" ng-click="openDetails($index)"-->
+            <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="openDetails(displayPage, $index)">
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix" ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
-        <!-- ng-dblclick="deleteBuble($index)" ng-click="openBuble($index)" ng-dblclick="addBuble($index)"> "setUserStyle($index)" ng-click="openDetails($index)"-->
-        <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="openDetails(displayPage, $index)">
+                <div>
+                    <h5>{{buble.user}}</h5>
+                    <p>{{buble.date}} {{buble.time}}</p>
+                    <p>{{buble.content}}</p>
+                    <img ng-src={{buble.mediaUrl}} alt="">
 
-            <div>
-                <h5>{{buble.user}}</h5>
-                <p>{{buble.date}} {{buble.time}}</p>
-                <p >{{buble.content}}</p>
-                <img ng-src={{buble.mediaUrl}} alt="">
-
+                </div>
             </div>
         </div>
     </div>

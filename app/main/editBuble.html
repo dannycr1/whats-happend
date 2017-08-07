@@ -8,17 +8,33 @@
         <div class="modal-body" style="padding:40px 50px;">
             <form role="form">
                 <div class="form-group">
+                    <label for="mediaType">Buble type</label>
+                    <select ng-model="buble.media">
+                    <option value="text">Text</option>
+                    <option value="image">Image</option>
+                    <option value="date">Date</option>
+                    <option value="video" >Video</option>
+                    <option value="audio" >Audio</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="content">Content</label>
-                    <input type="text" class="form-control" id="content" placeholder="enter Text" ng-model="buble.content" >
+                    <input type="text" class="form-control" id="content" placeholder="enter Text" ng-model="buble.content">
                 </div>
                 <div class="form-group">
                     <label for="mediaUrl"> Link</label>
                     <input type="text" class="form-control" id="mediaUrl" placeholder="Enter Url" ng-model="buble.mediaUrl">
                 </div>
+                <div class="form-group">
+                    <label for="mediaUrl"> Date Time</label>
+                    <input type="date" class="form-control" id="date" placeholder="Enter Date" ng-model="buble.date">
+                    <input type="time" class="form-control" id="time" placeholder="Enter Time" ng-model="buble.time">
+
+                </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal"> Apply</button>
+            <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="updateBuble()"> Apply</button>
             <button type="submit" class="btn btn-warning btn-default pull-left" data-dismiss="modal" ng-click="addBuble()"> Duplicate</button>
             <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ng-click="deleteBuble()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
             <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditBuble()"> Cancel</button>

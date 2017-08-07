@@ -35,14 +35,37 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
       "styleSet": b.styleSet
     };
     bubles.add($routeParams.bubleIndex, buble);
-   // $scope.openBuble(index)
-   // console.log("After" + JSON.stringify($scope.bubleArr[index]));
+    bubles.getAll();
     pages.removeAll();
     $location.path("/main")
-    
   }
 
-
+  $scope.updateBuble = function () {
+    console.log("Update buble");
+    var b = {};
+    b = bubles.get($routeParams.bubleIndex);
+    if ($scope.buble.date != null) {
+      b.date = $filter("date")($scope.buble.date, 'yyyy-MM-dd');
+    }
+    if ($scope.buble.time != null) {
+      b.time = $filter("time")($scope.buble.time, 'hh-mm-ss');
+    }
+    if ($scope.buble.media == "date") {
+      b.user = "DATE";
+      b.content = "";
+      b.time = "";
+      b.styleSet = "0";
+      b.mediaUrl = "";
+    }
+    b.content = $scope.buble.content;
+    if ($scope.buble.mediaUrl != null) {
+      b.mediaUrl = $scope.buble.mediaUrl;
+    }
+    bubles.update($routeParams.bubleIndex, b);
+    bubles.getAll();
+    pages.removeAll();
+    $location.path("/main")
+  }
 });
 
 

@@ -57,7 +57,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             bubles.load(response.data);
             $scope.bubleArr = bubles.getAll();
             $scope.bublePages = pages.buildPages();
-
+            $scope.displayPage = 0;
         });
 
     }
@@ -66,6 +66,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $scope.bublePages = pages.buildPages();
         console.log($scope.bubleArr);
         console.log($scope.pageArr);
+
     }
 
 

@@ -14,13 +14,13 @@ bubleApp.config(function ($routeProvider) {
             templateUrl: "app/main/editBuble.html",
             controller: "EditBubleCtrl"
         })
-    // .when("/recipes/:recipeIndex", {
-    //     templateUrl: "app/recipe/recipeDetails.html",
-    //     controller: "RecipeDetailsCtrl"
-    // }).when("/new", {
-    //     templateUrl: "app/recipe/newRecipe.html",
-    //     controller: "NewRecipeCtrl"            
-    // })
+        .when("/user", {
+            templateUrl: "app/users/users.html",
+            controller: "UserCtrl"
+            // }).when("/new", {
+            //     templateUrl: "app/recipe/newRecipe.html",
+            //     controller: "NewRecipeCtrl"            
+        })
 
 });
 

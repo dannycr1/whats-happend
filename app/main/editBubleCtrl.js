@@ -44,12 +44,12 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
     console.log("Update buble");
     var b = {};
     b = bubles.get($routeParams.bubleIndex);
-    if ($scope.buble.date != null) {
-      b.date = $filter("date")($scope.buble.date, 'yyyy-MM-dd');
-    }
-    if ($scope.buble.time != null) {
-      b.time = $filter("time")($scope.buble.time, 'hh-mm-ss');
-    }
+    // if ($scope.buble.date != null) {
+    //   b.date = $filter("date")($scope.buble.date, 'yyyy-MM-dd');
+    // }
+    // if ($scope.buble.time != null) {
+    //   b.time = $filter("time")($scope.buble.time, 'hh-mm-ss');
+    // }
     if ($scope.buble.media == "date") {
       b.user = "DATE";
       b.content = "";

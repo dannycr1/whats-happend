@@ -91,100 +91,20 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         console.log("Before" + JSON.stringify($scope.bubleArr[index]));
         $location.path("/editBuble/" + pageIndex + "/" + index)
     }
+   
+
+    
 
 
-    $scope.openBuble = function (index) {
-
-        console.log("Open buble");
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-
-        var newMedia = prompt("Define buble type - image / text / date", bubles.get(index).media);
-        if (bubles.get(index).media === "date") {
-            var newContent = prompt("Please enter user", bubles.get(index).user);
-            if (newContent != null) {
-                bubles.updateUser(index, newContent);
-                var newContent = prompt("Please enter time", bubles.get(index).time);
-                if (newContent != null) {
-                    bubles.updateTime(index, newContent);
-                }
-            }
-        }
-
-
-        if (newMedia === "text") {
-            var newContent = prompt("Please enter your text", bubles.get(index).content);
-            if (newContent != null) {
-                bubles.updateContent(index, newContent);
-                bubles.updateMedia(index, newMedia);
-            }
-        }
-        else if (newMedia === "image") {
-            var newContent = prompt("Please enter url", bubles.get(index).mediaUrl);
-            if (newContent != null) {
-                bubles.updateMediaUrl(index, newContent);
-                bubles.updateMedia(index, "image");
-            }
-
-        }
-
-        else if (newMedia === "date") {
-            var newContent = prompt("Please enter Date", bubles.get(index).date);
-            if (newContent != null) {
-                bubles.updateDate(index, newContent);
-                bubles.updateMedia(index, newMedia);
-                bubles.updateContent(index, "");
-            }
-
-        }
-        else {
-
-        }
-        console.log("After" + JSON.stringify($scope.bubleArr[index]));
-
-
-    }
-
-    $scope.setUserStyle = function (index) {
-        console.log("Set user style");
-
-        var username = "";
-        for (i = 0; i < $scope.userArr.length; i++) {
-            username = $scope.userArr[i].userName;
-            if (bubles.get(index).user == username) {
-
-                var align = $scope.userArr[i].align
-                var styleSet = $scope.userArr[i].styleSet
-                var newIndex = i;
-            }
-        }
-
-        console.log("Before " + JSON.stringify($scope.userArr[newIndex]));
-
-        var styleSet = $scope.userArr[newIndex].styleSet;
-        //     }
-        // }
-        var newContent = prompt("Please enter styleSet 1-8", styleSet);
-        if ((newContent >= 1) && (newContent <= 8)) {
-            users.updateStyleSet(newIndex, newContent);
-        }
-        else {
-            newContent = styleSet;
-        }
-
-        console.log("After" + JSON.stringify($scope.userArr[newIndex]));
-
-    }
-
-
-    $scope.Elogin = function () {
-        //  var user = getLoggedInUser();
-        if (user != null) {
-            activeUser.login(user);
-            $location.path("/main")
-        } else {
-            $scope.failedAttempt = true;
-        }
-    }
+    // $scope.Elogin = function () {
+    //     //  var user = getLoggedInUser();
+    //     if (user != null) {
+    //         activeUser.login(user);
+    //         $location.path("/main")
+    //     } else {
+    //         $scope.failedAttempt = true;
+    //     }
+    // }
 
     $scope.fromDate = "2016-05-01";
     $scope.toDate = "2016-10-20";

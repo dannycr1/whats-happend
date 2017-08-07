@@ -29,7 +29,8 @@
     <script src="app/model/page.js"></script>
     <script src="app/main/mainCtrl.js"></script>
     <script src="app/main/editBubleCtrl.js"></script>
-    
+    <script src="app/users/usersCtrl.js"></script>
+
 
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -63,7 +64,7 @@
                     <button ng-disabled="!isLoggedIn()" type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav">
-                    <li ng-show="isLoggedIn()"><a href="#!/recipes">menu1</a></li>
+                    <li ng-show="isLoggedIn()"><a href="#!/user">Users</a></li>
                     <li ng-show="isLoggedIn()"><a href="#!/new">menu2</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

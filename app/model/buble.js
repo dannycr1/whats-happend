@@ -9,7 +9,7 @@ bubleApp.factory("Buble", function () {
         this.mediaUrl = "";
         this.exactDate = Date.parse(this.date);
 
-        this.bubleHeight = 20;
+        this.bubleHeight = 18;
         this.unique = this.date + this.time;
         // console.log("unique " + this.unique);
 
@@ -190,13 +190,13 @@ bubleApp.factory("bubles", function (Buble) {
                 } else {
                     orientation = 'other';
                     //console.log("other");
-                    bubleArr[index].bubleHeight = 20;
+                    bubleArr[index].bubleHeight = 18;
                 }
             }
             img.src = bubleArr[index].mediaUrl;
         }
         else if (bubleArr[index].media === "date") {
-            bubleArr[index].bubleHeight = 10;
+            bubleArr[index].bubleHeight = 8;
         }
 
         return bubleArr[index].bubleHeight;

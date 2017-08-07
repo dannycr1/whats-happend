@@ -15,13 +15,14 @@ div .buble-item {
     display: inline-block; 
     font-size: 14px; 
     text-align: right;
-    padding: 2px 20px;
-    margin: 5px;
+    padding: 0px 20px;
+    margin: 1px;
     line-height: 70%;
 }
 
 .well {
 border-radius: 25px;
+margin: 0px;
 
 }
 

@@ -12,7 +12,7 @@ bubleApp.config(function ($routeProvider) {
         })
         .when("/editBuble/:pageIndex/:bubleIndex", {
             templateUrl: "app/main/editBuble.html",
-            controller: "MainCtrl"
+            controller: "EditBubleCtrl"
         })
     // .when("/recipes/:recipeIndex", {
     //     templateUrl: "app/recipe/recipeDetails.html",

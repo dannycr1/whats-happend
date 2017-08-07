@@ -23,19 +23,11 @@ bubleApp.factory("pages", function (Page) {
     var pageArr = [];
 
     var addBubleToPage = function (pageIndex, buble) {
-        //        if (addBubleToPage[length - 1].addBuble(bubleIndex) == "true") {
-        if (true) {
-            //             pageArr.push(new Page);
-            //console.log("buble " + buble);
-            pageArr[pageIndex].pageBubleList.push(buble);
-            //console.log("pageArr " + JSON.stringify(pageArr));
-            //console.log("pageBubleList " + JSON.stringify(pageArr[pageIndex].pageBubleList));
-        }
-        else {
-            pageArr.push(new Page());
-            console.log("Crete new page:" + pageArr[length])
-            index++;
-        }
+
+        pageArr[pageIndex].pageBubleList.push(buble);
+
+
+
     }
 
 

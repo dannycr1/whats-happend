@@ -1,4 +1,4 @@
-<div ng-hide="1" class="buble">
+<div ng-hide="0" class="editBuble">
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
@@ -9,19 +9,19 @@
             <form role="form">
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <input type="text" class="form-control" id="content" placeholder="enter Text" ng-model="buble" >
+                    <input type="text" class="form-control" id="content" placeholder="enter Text" ng-model="buble.content" >
                 </div>
                 <div class="form-group">
                     <label for="mediaUrl"> Link</label>
-                    <input type="text" class="form-control" id="mediaUrl" placeholder="Enter Url">
+                    <input type="text" class="form-control" id="mediaUrl" placeholder="Enter Url" ng-model="buble.mediaUrl">
                 </div>
             </form>
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal"> Apply</button>
             <button type="submit" class="btn btn-warning btn-default pull-left" data-dismiss="modal"> Duplicate</button>
-            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Delete</button>
-            <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal"> Cancel</button>
+            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ng-click="deleteBuble($routeParams.bubleIndex)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditBuble()"> Cancel</button>
 
         </div>
     </div>

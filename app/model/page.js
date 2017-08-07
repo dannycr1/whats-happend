@@ -19,7 +19,7 @@ bubleApp.factory("Page", function () {
 
 
 // need to add index
-bubleApp.factory("pages", function (Page) {
+bubleApp.factory("pages", function (Page, bubles) {
     var pageArr = [];
 
     var addBubleToPage = function (pageIndex, buble) {
@@ -79,6 +79,49 @@ bubleApp.factory("pages", function (Page) {
         pageArr = [];
     }
 
+    var buildPages = function () {
+        var pageIndex = 0;
+        var bubleArr = bubles.getAll();
+        var bublePages = [];
+        addPage();
+        setCurrentPageHeight(pageIndex, 0);
+        var len = bubles.getAll().length;
+        for (var i = 0; i < len; i++) {
+            if (getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1 > getMaxPageHeight(pageIndex)) {
+                console.log("-------new page -------------");
+                console.log("getCurrentPageHeight: )" + JSON.stringify(getCurrentPageHeight(pageIndex)));
+                console.log("bubles.getHeight(i))" + JSON.stringify(bubles.getHeight(i)));
+                console.log("new current " + JSON.stringify(getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1));
+                console.log("getMaxPageHeight" + JSON.stringify(getMaxPageHeight(pageIndex)));
+
+                {
+                    bublePages[pageIndex] = getpageBubleList(pageIndex);
+                    // console.log("bublePages " + JSON.stringify($scope.bublePages[pageIndex]));
+                    // console.log("bublelength " + JSON.stringify($scope.bublePages[pageIndex].length));
+                }
+
+
+                pageIndex++;
+                addPage(pageIndex);
+                setCurrentPageHeight(pageIndex, 0);
+            }
+
+            console.log("-------Exist page -------------");
+            console.log("getCurrentPageHeight " + JSON.stringify(getCurrentPageHeight(pageIndex)));
+            console.log("bubles.getHeight(i)   " + JSON.stringify(bubles.getHeight(i)));
+            console.log("new current " + JSON.stringify(getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1));
+            console.log("getMaxPageHeight " + JSON.stringify(getMaxPageHeight(pageIndex)));
+
+            console.log("buble number" + i + " from length " + len);
+
+            addBubleToPage(pageIndex, bubleArr[i]);
+            setCurrentPageHeight(pageIndex, getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1);
+            
+        }
+        return bublePages;
+
+    }
+
     return {
         add: add,
         update: update,
@@ -92,7 +135,8 @@ bubleApp.factory("pages", function (Page) {
         setCurrentPageHeight: setCurrentPageHeight,
         getCurrentPageHeight: getCurrentPageHeight,
         getMaxPageHeight: getMaxPageHeight,
-        getpageBubleList: getpageBubleList
+        getpageBubleList: getpageBubleList,
+        buildPages: buildPages
 
     }
 })

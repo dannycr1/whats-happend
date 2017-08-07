@@ -39,7 +39,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.displayPage = 0;
     $scope.displayPageIndex = function (number) {
-        if (($scope.displayPage + number) < 0) {number =0 ;}
+        if (($scope.displayPage + number) < 0) { number = 0; }
         return $scope.displayPage = $scope.displayPage + number;
     };
 
@@ -57,44 +57,17 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             bubles.load(response.data);
             $scope.bubleArr = bubles.getAll();
 
-            pages.addPage();
-            pages.setCurrentPageHeight(pageIndex, 0);
-            var len = bubles.getAll().length;
-            for (var i = 0; i < len; i++) {
-                if (pages.getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1 > pages.getMaxPageHeight(pageIndex)) {
-                    console.log("-------new page -------------");
-                    console.log("getCurrentPageHeight: )" + JSON.stringify(pages.getCurrentPageHeight(pageIndex)));
-                    console.log("bubles.getHeight(i))" + JSON.stringify(bubles.getHeight(i)));
-                    console.log("new current " + JSON.stringify(pages.getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1));
-                    console.log("pages.getMaxPageHeight" + JSON.stringify(pages.getMaxPageHeight(pageIndex)));
-
-                    {
-                        $scope.bublePages[pageIndex] = pages.getpageBubleList(pageIndex);
-                        console.log("bublePages " + JSON.stringify($scope.bublePages[pageIndex]));
-                        console.log("bublePages.length " + JSON.stringify($scope.bublePages[pageIndex].length));
-                    }
-
-
-                    pageIndex++;
-                    pages.addPage(pageIndex);
-                    pages.setCurrentPageHeight(pageIndex, 0);
-                }
-
-                console.log("-------Exist page -------------");
-                console.log("getCurrentPageHeight " + JSON.stringify(pages.getCurrentPageHeight(pageIndex)));
-                console.log("bubles.getHeight(i)   " + JSON.stringify(bubles.getHeight(i)));
-                console.log("new current " + JSON.stringify(pages.getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1));
-                console.log("pages.getMaxPageHeight " + JSON.stringify(pages.getMaxPageHeight(pageIndex)));
-
-                console.log("buble number" + i + " from length " + len);
-
-                pages.addBubleToPage(pageIndex, $scope.bubleArr[i]);
-                pages.setCurrentPageHeight(pageIndex, pages.getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1);
-
-            }
+            $scope.bublePages = pages.buildPages();
 
         });
-    
+
+    }
+    else {
+
+        $scope.bubleArr = bubles.getAll();
+        $scope.bublePages = pages.buildPages();
+        console.log($scope.bubleArr);
+        console.log($scope.pageArr);
     }
 
 
@@ -109,7 +82,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         });
     } else {
         $scope.userArr = users.getAll();
-       // pages.addBubleToPage(pageIndex, bubles);
+        // pages.addBubleToPage(pageIndex, bubles);
     }
 
 
@@ -117,7 +90,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
         console.log("Edit buble");
         console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-        $location.path("/editBuble/"+pageIndex+"/"+index)
+        $location.path("/editBuble/" + pageIndex + "/" + index)
     }
 
 

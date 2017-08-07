@@ -10,20 +10,21 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
   console.log(' $scope.buble.mediaUrl : ', $scope.buble.mediaUrl);
 
 
-  $scope.deleteBuble = function (index) {
+  $scope.deleteBuble = function () {
     console.log("Delete buble");
-    console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-    bubles.remove(index);
-    console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+
+    bubles.remove($routeParams.bubleIndex);
+ 
+   pages.removeAll();
     $location.path("/main")
   }
 
   $scope.cancelEditBuble = function () {
-    $scope.bubleArr = [];
-    $scope.pageArr = [];
-    $scope.userArr = []
-    bubles.removeAll();
-    pages.removeAll();
+    // $scope.bubleArr = [];
+    // $scope.pageArr = [];
+    // $scope.userArr = []
+    // bubles.removeAll();
+    // pages.removeAll();
     $location.path("/main")
   }
 

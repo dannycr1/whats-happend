@@ -12,23 +12,35 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
 
   $scope.deleteBuble = function () {
     console.log("Delete buble");
-
     bubles.remove($routeParams.bubleIndex);
- 
-   pages.removeAll();
+    pages.removeAll();
     $location.path("/main")
   }
 
   $scope.cancelEditBuble = function () {
-    // $scope.bubleArr = [];
-    // $scope.pageArr = [];
-    // $scope.userArr = []
-    // bubles.removeAll();
-    // pages.removeAll();
+    pages.removeAll();
     $location.path("/main")
   }
 
+  $scope.addBuble = function () {
+    console.log("Add buble");
+    var b = bubles.get($routeParams.bubleIndex);
+    var buble = {
+      "date": b.date,
+      "time": b.time,
+      "user": b.user,
+      "content": b.content,
+      "media": b.media,
+      "mediaUrl": b.mediaUrl,
+      "styleSet": b.styleSet
+    };
+    bubles.add($routeParams.bubleIndex, buble);
+   // $scope.openBuble(index)
+    console.log("After" + JSON.stringify($scope.bubleArr[index]));
+    pages.removeAll();
 
+    $location.path("/main")
+  }
 
 
 });

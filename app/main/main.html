@@ -13,7 +13,7 @@
             <!--  ng-click="openBuble($index)" ng-dblclick="setUserStyle($index)" -->
             <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="openDetails(displayPage, $index)">
                 <div>
-                    <h5>{{buble.user}}</h5>
+                    <h5><strong>{{buble.user}}</strong></h5>
                     <p>{{buble.date}} {{buble.time}}</p>
                     <p>{{buble.content}}</p>
                     <img ng-src={{buble.mediaUrl}} alt="">

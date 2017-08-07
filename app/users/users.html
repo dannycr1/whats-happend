@@ -11,7 +11,7 @@
                     <ul>
                         <li ng-repeat="user in userArr">
                             <span>{{user.userName}}</span>
-                            <label for="styleSet">User Style </label>
+                            <label for="styleSet"> </label>
                             <select ng-model="user.styleSet" ng-click="setUserStyle($index)">
                                     <option value="1" >1</option>
                                     <option value="2" >2</option>
@@ -22,6 +22,12 @@
                                     <option value="7">7</option>
                                     <option value="8">8</option>
                                     <option value="date" >date</option>
+                                    </select>
+                            <label for="align"> </label>
+                            <select ng-model="user.align" ng-click="setUserAlign($index)">
+                                    <option value="left" >left</option>
+                                    <option value="" >center</option>
+                                    <option value="right" >right</option>
                                     </select>
                         </li>
                     </ul>

@@ -15,8 +15,8 @@ div .buble-item {
     display: inline-block; 
     font-size: 14px; 
     text-align: right;
-    padding: 0px 20px;
-    margin: 1px 0 0 0;
+    padding: 1px 20px;
+    margin: 1px 0 ;
     line-height: 70%;
 }
 

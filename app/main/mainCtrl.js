@@ -143,30 +143,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     }
 
-    $scope.deleteBuble = function (index) {
-        console.log("Delete buble");
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-        bubles.remove(index);
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-    }
-
-    $scope.addBuble = function (index) {
-        console.log("Add buble");
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-        var buble = {
-            "date": $scope.bubleArr[index].date,
-            "time": $scope.bubleArr[index].time,
-            "user": $scope.bubleArr[index].user,
-            "content": $scope.bubleArr[index].content,
-            "media": $scope.bubleArr[index].media,
-            "mediaUrl": $scope.bubleArr[index].mediaUrl,
-            "styleSet": $scope.bubleArr[index].styleSet
-        };
-        bubles.add(index, buble);
-        $scope.openBuble(index)
-        console.log("After" + JSON.stringify($scope.bubleArr[index]));
-    }
-
     $scope.setUserStyle = function (index) {
         console.log("Set user style");
 

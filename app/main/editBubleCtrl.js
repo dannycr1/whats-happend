@@ -36,10 +36,10 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
     };
     bubles.add($routeParams.bubleIndex, buble);
    // $scope.openBuble(index)
-    console.log("After" + JSON.stringify($scope.bubleArr[index]));
+   // console.log("After" + JSON.stringify($scope.bubleArr[index]));
     pages.removeAll();
-
     $location.path("/main")
+    
   }
 
 

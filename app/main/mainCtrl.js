@@ -56,14 +56,12 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $http.get(activeUser.get().data).then(function (response) {
             bubles.load(response.data);
             $scope.bubleArr = bubles.getAll();
-
             $scope.bublePages = pages.buildPages();
 
         });
 
     }
     else {
-
         $scope.bubleArr = bubles.getAll();
         $scope.bublePages = pages.buildPages();
         console.log($scope.bubleArr);

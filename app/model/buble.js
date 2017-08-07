@@ -66,7 +66,7 @@ bubleApp.factory("bubles", function (Buble) {
     var bubleArr = [];
 
     var add = function (index, buble) {
-        bubleArr.splice(index + 1, 0, buble);
+        bubleArr.splice(Number(index) + 1, 0, buble);
     }
 
     var update = function (index, buble) {

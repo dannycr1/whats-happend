@@ -3,42 +3,37 @@
     <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4>Edit Buble</h4>
+            <h4>Set Users Style</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
             <form role="form">
-                <div class="form-group">
-                    <label for="mediaType">Buble type</label>
-                    <select ng-model="buble.media">
-                    <option value="text">Text</option>
-                    <option value="image">Image</option>
-                    <option value="date">Date</option>
-                    <option value="video" >Video</option>
-                    <option value="audio" >Audio</option>
-                    </select>
+                <div class="users">
+                    <ul>
+                        <li ng-repeat="user in userArr">
+                            <span>{{user.userName}}</span>
+                            <label for="styleSet">User Style </label>
+                            <select ng-model="user.styleSet" ng-click="setUserStyle($index)">
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="date" >date</option>
+                                    </select>
+                        </li>
+                    </ul>
                 </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <input type="text" class="form-control" id="content" placeholder="enter Text" ng-model="buble.content">
-                </div>
-                <div class="form-group">
-                    <label for="mediaUrl"> Link</label>
-                    <input type="text" class="form-control" id="mediaUrl" placeholder="Enter Url" ng-model="buble.mediaUrl">
-                </div>
-                <div class="form-group">
-                    <label for="mediaUrl"> Date Time</label>
-                    <input type="date" class="form-control" id="date" placeholder="Enter Date" ng-model="buble.date">
-                    <input type="time" class="form-control" id="time" placeholder="Enter Time" ng-model="buble.time">
-
-                </div>
-            </form>
         </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="updateBuble()"> Apply</button>
-            <button type="submit" class="btn btn-warning btn-default pull-left" data-dismiss="modal" ng-click="addBuble()"> Duplicate</button>
-            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ng-click="deleteBuble()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
-            <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditBuble()"> Cancel</button>
 
-        </div>
+        </form>
     </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="apply()"> Apply</button>
+        <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditUser()"> Cancel</button>
+
+    </div>
+</div>
 </div>

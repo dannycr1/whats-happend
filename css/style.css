@@ -77,6 +77,12 @@ background-color: lightgreen ;
      color: black;
 }
 
+.styledate {
+   background-color: whitesmoke;
+     color: black;
+     text-align: center ;
+}
+
 .toNav {
 
     float: left;

@@ -128,6 +128,7 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[0].media = "date";
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
+        
         var d1 = new Date(bublePlainObjectArr[0].date);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)

@@ -1,9 +1,5 @@
 bubleApp.controller("LoginCtrl", function ($scope, $uibModalInstance, $http, $location, activeUser, User) {
 
-    // TODO: Detele this
-    // $scope.email = "nir@nir.com";
-    // $scope.password = "nir123";
-
     $http.get("app/data/users.json").then(function (response) {
         $scope.users = [];
         for (var i = 0; i < response.data.length; i++) {

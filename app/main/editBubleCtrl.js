@@ -1,4 +1,4 @@
-bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $filter, bubles, users, pages, $routeParams) {
+bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $filter, bubles, users, pages, $routeParams, Buble) {
 
   console.log('content in ctrl: ', $routeParams.pageIndex);
   console.log('content in ctrl: ', $routeParams.bubleIndex);
@@ -24,8 +24,11 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
 
   $scope.addBuble = function () {
     console.log("Add buble");
-    var b = bubles.get($routeParams.bubleIndex);
-    var buble = {
+    var b = pages.get([$routeParams.pageIndex]).pageBubleList[$routeParams.bubleIndex];
+    var index = bubles.getIndex(b);
+
+
+    var b = {
       "date": b.date,
       "time": b.time,
       "user": b.user,
@@ -34,7 +37,8 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $location, $f
       "mediaUrl": b.mediaUrl,
       "styleSet": b.styleSet
     };
-    bubles.add($routeParams.bubleIndex, buble);
+    var dupBuble = new Buble(b);
+    bubles.add(index, dupBuble);
     bubles.getAll();
     pages.removeAll();
     $location.path("/main")

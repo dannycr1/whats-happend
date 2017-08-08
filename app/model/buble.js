@@ -157,6 +157,11 @@ bubleApp.factory("bubles", function (Buble) {
         return bubleArr;
     }
 
+    var getIndex = function (buble) {
+        return bubleArr.indexOf(buble);
+    }
+
+
     var get = function (index) {
         return bubleArr[index];
     }
@@ -224,7 +229,8 @@ bubleApp.factory("bubles", function (Buble) {
         updateBubleFontColor: updateBubleFontColor,
         updateBubleBackgroundColor: updateBubleBackgroundColor,
         updateBubleBorderColor: updateBubleBorderColor,
-        updateBubleBorder: updateBubleBorder
+        updateBubleBorder: updateBubleBorder,
+        getIndex: getIndex
 
 
     }

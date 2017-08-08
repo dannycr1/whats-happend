@@ -5,8 +5,15 @@ bubleApp.factory("Buble", function () {
         this.date = plainObject.date;
         this.time = plainObject.time;
         this.content = plainObject.content;
-        this.media = "text";
-        this.mediaUrl = "";
+
+        if (plainObject.media != null) { this.media = plainObject.media }
+        else {
+            this.media = "text";
+        }
+        if (plainObject.mediaUrl != null) { this.mediaUrl = plainObject.mediaUrl }
+        else {
+            this.mediaUrl = "";
+        }
         this.exactDate = Date.parse(this.date);
 
         this.bubleHeight = 18;
@@ -121,14 +128,14 @@ bubleApp.factory("bubles", function (Buble) {
     }
 
     var load = function (bublePlainObjectArr) {
-        bubleArr=[];
+        bubleArr = [];
         bubleArr.push(new Buble(bublePlainObjectArr[0]))
         bubleArr[0].content = "";
         bubleArr[0].user = "DATE";
         bubleArr[0].media = "date";
         bubleArr[0].mediaUrl = "";
         bubleArr[0].time = "";
-        
+
         var d1 = new Date(bublePlainObjectArr[0].date);
         for (var i = 0; i < bublePlainObjectArr.length; i++) {
             var d2 = new Date(bublePlainObjectArr[i].date)
@@ -187,7 +194,7 @@ bubleApp.factory("bubles", function (Buble) {
             img.onload = function () {
                 if (img.naturalWidth > img.naturalHeight) {
                     orientation = 'landscape';
-                   // console.log("portrait");
+                    // console.log("portrait");
                     bubleArr[index].bubleHeight = 95;
                 } else if (img.naturalWidth < img.naturalHeight) {
                     orientation = 'portrait';

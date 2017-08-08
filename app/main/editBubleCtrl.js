@@ -14,7 +14,6 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInst
     console.log(' $scope.buble.mediaUrl : ', $scope.buble.mediaUrl);
   */
 
-  // $scope.bubleInd = bubles.getIndex($scope.buble);
   $scope.buble = new Buble(buble);
   $scope.bubleIndex = bubles.getIndex(buble)
 

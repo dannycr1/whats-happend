@@ -1,5 +1,19 @@
 bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal, Buble) {
     // If the user is not logged in going back to home screen
+
+
+
+    $scope.printToCart = function (printSectionId) {
+        var innerContents = document.getElementById(printSectionId).innerHTML;
+        var popupWinindow = window.open('', '_blank', 'width=600,height=297mm,scrollbars=no,menubar=no,toolbar=no,location=yes,status=no,titlebar=no');
+        popupWinindow.document.open();
+        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.close();
+    }
+
+
+
+
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
         return;
@@ -73,6 +87,8 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     $scope.displayBuble = function (index) {
         var align = "right";
         var username = "";
+
+
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
             if (pages.get($scope.displayPage).pageBubleList[index].user == username) {
@@ -82,6 +98,9 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
                 //continue;
             }
         }
+
+        if (pages.get($scope.displayPage).pageBubleList[index].hide == true) { styleSet = "hide" }
+
         if (align == "right") {
             return ("pull-right " + "style" + styleSet);
         }
@@ -96,6 +115,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     };
 
     $scope.displayPage = 0;
+
     $scope.displayPageIndex = function (number) {
         if (($scope.displayPage + number) < 0) { number = 0; }
         return $scope.displayPage = $scope.displayPage + number;
@@ -106,6 +126,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             bubles.load(response.data);
             $scope.bubleArr = bubles.getAll();
             $scope.bublePages = pages.buildPages();
+
             $scope.displayPage = 0;
         });
     }
@@ -119,12 +140,12 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $scope.bublePages = [];
 
         loadNewBubles();
-
     }
     else {
         loadBubles();
-
     }
+   // $scope.styleSet = pages.getStyleSet(0);
+
 
     function loadBubles() {
         $scope.bubleArr = bubles.getAll();

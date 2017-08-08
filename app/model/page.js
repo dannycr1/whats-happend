@@ -4,6 +4,7 @@ bubleApp.factory("Page", function () {
         this.pageBubleList = [];
         this.maxPageHeight = 310;
         this.currentPageHeight = 0;
+        this.styleSet = "pageStyle1";
 
         // this.addBuble = function (buble) {
         //     if (this.currentPageHeight + buble.bubleHeight + 1 < this.maxPageHeight)
@@ -36,6 +37,14 @@ bubleApp.factory("pages", function (Page, bubles) {
     }
 
 
+    var getStyleSet = function (index) {
+        if (pageArr[0].styleSet == NaN) {return "pageStyle1"}
+        return pageArr[0].styleSet;
+    }
+
+    var updateStyleSet = function (index, value) {
+        pageArr[index].styleSet = value;
+    }
     var setCurrentPageHeight = function (index, value) {
         pageArr[index].currentPageHeight = value;
     }
@@ -93,7 +102,7 @@ bubleApp.factory("pages", function (Page, bubles) {
                 // console.log("bubles.getHeight(i))" + JSON.stringify(bubles.getHeight(i)));
                 // console.log("new current " + JSON.stringify(getCurrentPageHeight(pageIndex) + bubles.getHeight(i) + 1));
                 // console.log("getMaxPageHeight" + JSON.stringify(getMaxPageHeight(pageIndex)));
-                
+
                 bublePages[pageIndex] = getpageBubleList(pageIndex);
                 pageIndex++;
                 addPage(pageIndex);
@@ -131,7 +140,9 @@ bubleApp.factory("pages", function (Page, bubles) {
         getCurrentPageHeight: getCurrentPageHeight,
         getMaxPageHeight: getMaxPageHeight,
         getpageBubleList: getpageBubleList,
-        buildPages: buildPages
+        buildPages: buildPages,
+        updateStyleSet: updateStyleSet,
+        getStyleSet: getStyleSet
 
     }
 })

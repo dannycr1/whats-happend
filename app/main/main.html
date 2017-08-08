@@ -8,7 +8,7 @@
         <button href="#" ng-click="displayPageIndex(1)">Next</button>
     </div>
 
-    <div class="xxx">
+    <div class="pageStyle1" id="printSectionId" >
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix " ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
             <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="editBuble(buble, displayPage, $index)">
                 <div>
@@ -21,4 +21,5 @@
             </div>
         </div>
     </div>
+
 </div>

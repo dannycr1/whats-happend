@@ -41,6 +41,7 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInst
     newBuble.user = $scope.buble.user;
     newBuble.media = $scope.buble.media;
     newBuble.mediaUrl = $scope.buble.mediaUrl;
+    newBuble.hide = $scope.buble.hide;
 
   //}
 

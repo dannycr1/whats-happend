@@ -17,6 +17,10 @@ bubleApp.config(function ($routeProvider) {
         .when("/user", {
             templateUrl: "app/users/users.html",
             controller: "UserCtrl"
+        })
+        .when("/page", {
+            templateUrl: "app/Page/pageStyle.html",
+            controller: "PageStyleCtrl"
             // }).when("/new", {
             //     templateUrl: "app/recipe/newRecipe.html",
             //     controller: "NewRecipeCtrl"            

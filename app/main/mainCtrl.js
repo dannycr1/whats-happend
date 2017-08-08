@@ -15,7 +15,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         var username = "";
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
-            if (bubles.get(index).user == username) {
+            if (pages.get($scope.displayPage).pageBubleList[index].user == username) {
                 var align = $scope.userArr[i].align;
                 var styleSet = $scope.userArr[i].styleSet;
 
@@ -34,8 +34,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         }
 
     };
-
-    $scope.greetName = activeUser.get().firstName;
 
     $scope.displayPage = 0;
     $scope.displayPageIndex = function (number) {

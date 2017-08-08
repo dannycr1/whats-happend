@@ -14,7 +14,7 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInst
     console.log(' $scope.buble.mediaUrl : ', $scope.buble.mediaUrl);
   */
 
- // $scope.bubleInd = bubles.getIndex($scope.buble);
+  // $scope.bubleInd = bubles.getIndex($scope.buble);
   $scope.buble = new Buble(buble);
   $scope.bubleIndex = bubles.getIndex(buble)
 
@@ -22,38 +22,41 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInst
     $uibModalInstance.close(param);
   }
 
-  
-
+  $scope.deleteBuble = function () {
+    console.log("Delete buble");
+    $scope.closeModal("delete");
+  }
+    $scope.cancelEditBuble = function () {
+    console.log("Cancel Edit Buble");
+    $scope.closeModal("cancel");
+  }
   $scope.addBuble = function () {
     console.log("Add buble");
-
     $scope.closeModal("Add");
   }
 
   $scope.updateBuble = function () {
     console.log("Update buble");
-    // var b = bubles.get($scope.bubleIndex);
-    // // if ($scope.buble.date != null) {
-    // //   b.date = $filter("date")($scope.buble.date, 'yyyy-MM-dd');
-    // // }
-    // // if ($scope.buble.time != null) {
-    // //   b.time = $filter("time")($scope.buble.time, 'hh-mm-ss');
-    // // }
-    // if ($scope.buble.media == "date") {
-    //   b.user = "DATE";
-    //   b.content = "";
-    //   b.time = "";
-    //   b.styleSet = "0";
-    //   b.mediaUrl = "";
-    // }
-    // b.content = $scope.buble.content;
-    // if ($scope.buble.mediaUrl != null) {
-    //   b.mediaUrl = $scope.buble.mediaUrl;
-    // }
-    // bubles.update($scope.bubleIndex, b);
-    // //bubles.getAll();
-    // //pages.removeAll();
-    $scope.closeModal("update");
+    var newBuble = buble;
+    newBuble.content = $scope.buble.content;
+    newBuble.user = $scope.buble.user;
+    newBuble.media = $scope.buble.media;
+    newBuble.mediaUrl = $scope.buble.mediaUrl;
+
+  //}
+
+  // if ($scope.buble.media == "date") {
+  //   b.user = "DATE";
+  //   b.content = "";
+  //   b.time = "";
+  //   b.styleSet = "0";
+  //   b.mediaUrl = "";
+  // }
+  // b.content = $scope.buble.content;
+  // if ($scope.buble.mediaUrl != null) {
+  //   b.mediaUrl = $scope.buble.mediaUrl;
+
+    $scope.closeModal("update", newBuble);
   }
 
 });

@@ -1,4 +1,4 @@
-bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal , Buble) {
+bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal, Buble) {
     // If the user is not logged in going back to home screen
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
@@ -32,44 +32,29 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             $scope.bubleIndex = bubles.getIndex(buble);
 
             if (result == "delete") { bubles.remove($scope.bubleIndex); pages.removeAll(); $scope.bublePages = pages.buildPages(); }
-            if (result == "Add") {     
-                var b = buble;
+            if (result == "Add") {
                 var newBuble = new Buble(buble);
-           
-                // var newBuble = {
-                //     "date": b.date,
-                //     "time": b.time,
-                //     "user": b.user,
-                //     "content": b.content,
-                //     "media": b.media,
-                //     "mediaUrl": b.mediaUrl,
-                //     "styleSet": b.styleSet
-                // };
-                // var dupBuble = new Buble(b);
                 bubles.add($scope.bubleIndex, newBuble);
                 bubles.getAll();
                 pages.removeAll();
                 $scope.bublePages = pages.buildPages();
-
             }
             if (result == "cancel") { pages.removeAll(); $scope.bublePages = pages.buildPages(); }
-            if (result == "Update") {
-                var newBuble = bubles.get($scope.bubleIndex);
-                if ($scope.buble.media == "date") {
-                    newBuble.user = "DATE";
-                    newBuble.content = "";
-                    newBuble.time = "";
-                    newBuble.styleSet = "0";
-                    newBuble.mediaUrl = "";
-                }
-                b.content = $scope.buble.content;
-                if ($scope.buble.mediaUrl != null) {
-                    newBuble.mediaUrl = $scope.buble.mediaUrl;
-                }
-                bubles.update($scope.bubleIndex, newBuble);
-                // bubles.getAll();
-                // pages.removeAll();
-
+            if (result == "update") {
+                // if (buble.media == "date") {
+                //     buble.user = "DATE";
+                //     buble.content = "";
+                //     buble.time = "";
+                //     buble.styleSet = "0";
+                //     buble.mediaUrl = "";
+                // }
+                // if (buble.mediaUrl != null) {
+                //     newBuble.mediaUrl = $scope.buble.mediaUrl;
+                // }
+                bubles.update($scope.bubleIndex, buble);
+                bubles.getAll();
+                pages.removeAll();
+                $scope.bublePages = pages.buildPages();
             }
 
 

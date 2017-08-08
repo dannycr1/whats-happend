@@ -3,36 +3,25 @@
     <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4>Set Page Style</h4>
+            <h4>Set Page Background</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
             <form role="form">
-                <div class="page">
-                    <ul>
-                        <li ng-repeat="page in pageArr">
-                            <span>Page-{{$index}}</span>
-                            <label for="Background"> </label>
-                            <select ng-model="pages.styleSet" ng-click="setPageStyle($index)">
-                                    <option value="1" >green</option>
-                                    <option value="2" >red</option>
-                                    <option value="3" >light-blue</option>
-                                    <option value="4" >4</option>
-                                    <option value="5" >5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    </select>
-                        </li>
-                    </ul>
-                </div>
+                <select ng-click="setPageStyle()">
+                    <option value="pageStyle1" >light-green</option>
+                    <option value="pageStyle2" >light-blue</option>
+                    <option value="pageStyle3" >light-red</option>
+                    </select>
+            </form>
         </div>
-
-        </form>
     </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="apply()"> Apply</button>
-        <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditPage()"> Cancel</button>
 
-    </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="apply()"> Apply</button>
+    <button type="submit" class="btn btn-basic btn-default pull-left" data-dismiss="modal" ng-click="cancelEditPage()"> Cancel</button>
+
+</div>
 </div>
 </div>

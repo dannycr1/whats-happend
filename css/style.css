@@ -37,8 +37,18 @@ clear: both;
 
 .pageStyle1 {
 /*margin: 0px 40px 0px 10px;*/
-height: 297mm; 
+ /* height: 297mm;   */
 background-color: lightgreen ;
+}
+
+.pageStyle2 {
+/*margin: 0px 40px 0px 10px;*/
+background-color: lightskyblue ;
+}
+
+.pageStyle3 {
+/*margin: 0px 40px 0px 10px;*/
+background-color: lightcoral ;
 }
 
 .style1 {

@@ -3,15 +3,13 @@ bubleApp.controller('PageStyleCtrl', function ($scope, activeUser, $location, $f
     $scope.pageArr = pages.getAll();
     //$scope.styleSet = users.getStyleSet(user)
 
-    $scope.setPageStyle = function (index) {
+    $scope.setPageStyle = function () {
         console.log("Set page style");
-        pages.updateStyleSet(index, user.styleSet);
+        $scope.pageStyle="pageStyle3"
     }
 
 
     $scope.cancelEditPage = function () {
-        bubles.getAll();
-        pages.removeAll();
         $location.path("/main")
     }
 

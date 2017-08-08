@@ -11,7 +11,9 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         popupWinindow.document.close();
     }
 
-
+    $scope.displayPageStyle = function () {
+        return "pageStyle1";
+    };
 
 
     if (!activeUser.isLoggedIn()) {
@@ -144,7 +146,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     else {
         loadBubles();
     }
-   // $scope.styleSet = pages.getStyleSet(0);
+    // $scope.styleSet = pages.getStyleSet(0);
 
 
     function loadBubles() {

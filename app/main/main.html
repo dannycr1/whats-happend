@@ -8,8 +8,8 @@
         <button href="#" ng-click="displayPageIndex(1)">Next</button>
     </div>
 
-    <div class="pageStyle1" id="printSectionId" >
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix " ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
+    <div   id="printSectionId" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix pageStyle2" ng-class="displayPageStyle()" ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
             <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="editBuble(buble, displayPage, $index)">
                 <div>
                     <h5><strong>{{buble.user}}</strong></h5>

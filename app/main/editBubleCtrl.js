@@ -22,32 +22,11 @@ bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInst
     $uibModalInstance.close(param);
   }
 
-  $scope.deleteBuble = function () {
-    console.log("Delete buble");
-    $scope.closeModal("delete");
-  }
-
-  $scope.cancelEditBuble = function () {
-    //pages.removeAll();
-    $scope.closeModal("cancel");
-  }
+  
 
   $scope.addBuble = function () {
     console.log("Add buble");
-    // var b = $scope.buble;
-    // var b = {
-    //   "date": b.date,
-    //   "time": b.time,
-    //   "user": b.user,
-    //   "content": b.content,
-    //   "media": b.media,
-    //   "mediaUrl": b.mediaUrl,
-    //   "styleSet": b.styleSet
-    // };
-    // var dupBuble = new Buble(b);
-    // bubles.add($scope.bubleIndex, dupBuble);
-    // bubles.getAll();
-    // pages.removeAll();
+
     $scope.closeModal("Add");
   }
 

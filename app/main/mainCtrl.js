@@ -1,4 +1,4 @@
-bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal) {
+bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal , Buble) {
     // If the user is not logged in going back to home screen
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
@@ -26,14 +26,33 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         });
 
         modalInstance.result.then(function (result, newBuble) {
-            console.log(result +"  "+ buble );
+            console.log(result + "  " + buble);
             //$scope.newBuble = new Buble(buble);
 
             $scope.bubleIndex = bubles.getIndex(buble);
 
-            if (result == "delete") { bubles.remove($scope.bubleIndex);pages.removeAll(); $scope.bublePages = pages.buildPages();}
-            if (result == "Add") { }
-            if (result == "cancel") {pages.removeAll(); $scope.bublePages = pages.buildPages(); }
+            if (result == "delete") { bubles.remove($scope.bubleIndex); pages.removeAll(); $scope.bublePages = pages.buildPages(); }
+            if (result == "Add") {     
+                var b = buble;
+                var newBuble = new Buble(buble);
+           
+                // var newBuble = {
+                //     "date": b.date,
+                //     "time": b.time,
+                //     "user": b.user,
+                //     "content": b.content,
+                //     "media": b.media,
+                //     "mediaUrl": b.mediaUrl,
+                //     "styleSet": b.styleSet
+                // };
+                // var dupBuble = new Buble(b);
+                bubles.add($scope.bubleIndex, newBuble);
+                bubles.getAll();
+                pages.removeAll();
+                $scope.bublePages = pages.buildPages();
+
+            }
+            if (result == "cancel") { pages.removeAll(); $scope.bublePages = pages.buildPages(); }
             if (result == "Update") {
                 var newBuble = bubles.get($scope.bubleIndex);
                 if ($scope.buble.media == "date") {
@@ -56,7 +75,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
 
 
-           // $scope.bublePages = pages.buildPages();
+            // $scope.bublePages = pages.buildPages();
         });
         // $scope.schedule = angular.fromJson(scheduleJSON);
 
@@ -130,7 +149,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     }
 
 
-    
+
 
     // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {

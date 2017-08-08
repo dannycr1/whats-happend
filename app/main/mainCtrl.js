@@ -1,10 +1,66 @@
-bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages) {
+bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal) {
     // If the user is not logged in going back to home screen
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
         return;
     }
     //$scope.a = "true";
+    console.log($scope);
+
+    $scope.editBuble = function (buble, displayPage, indexBuble) {
+        var modalInstance = $uibModal.open({
+            templateUrl: "app/main/editBuble.html",
+            controller: "EditBubleCtrl",
+            scope: $scope,
+            resolve: {
+                buble: function () {
+                    return buble;
+                },
+                displayPage: function () {
+                    return displayPage;
+                },
+                indexBuble: function () {
+                    return indexBuble;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (result, newBuble) {
+            console.log(result +"  "+ buble );
+            //$scope.newBuble = new Buble(buble);
+
+            $scope.bubleIndex = bubles.getIndex(buble);
+
+            if (result == "delete") { bubles.remove($scope.bubleIndex);pages.removeAll(); $scope.bublePages = pages.buildPages();}
+            if (result == "Add") { }
+            if (result == "cancel") {pages.removeAll(); $scope.bublePages = pages.buildPages(); }
+            if (result == "Update") {
+                var newBuble = bubles.get($scope.bubleIndex);
+                if ($scope.buble.media == "date") {
+                    newBuble.user = "DATE";
+                    newBuble.content = "";
+                    newBuble.time = "";
+                    newBuble.styleSet = "0";
+                    newBuble.mediaUrl = "";
+                }
+                b.content = $scope.buble.content;
+                if ($scope.buble.mediaUrl != null) {
+                    newBuble.mediaUrl = $scope.buble.mediaUrl;
+                }
+                bubles.update($scope.bubleIndex, newBuble);
+                // bubles.getAll();
+                // pages.removeAll();
+
+            }
+
+
+
+
+           // $scope.bublePages = pages.buildPages();
+        });
+        // $scope.schedule = angular.fromJson(scheduleJSON);
+
+    }
 
     $scope.isImage = function (index) {
         return bubles.isImage(index);
@@ -41,7 +97,14 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         return $scope.displayPage = $scope.displayPage + number;
     };
 
-
+    function loadNewBubles() {
+        $http.get(activeUser.get().data).then(function (response) {
+            bubles.load(response.data);
+            $scope.bubleArr = bubles.getAll();
+            $scope.bublePages = pages.buildPages();
+            $scope.displayPage = 0;
+        });
+    }
 
     // Making sure that we are only loading once - BUBLEs
     var len = bubles.getAll().length
@@ -51,24 +114,23 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $scope.bubleArr = [];
         $scope.bublePages = [];
 
-        $http.get(activeUser.get().data).then(function (response) {
-            bubles.load(response.data);
-            $scope.bubleArr = bubles.getAll();
-            $scope.bublePages = pages.buildPages();
-            $scope.displayPage = 0;
-        });
+        loadNewBubles();
 
     }
     else {
+        loadBubles();
+
+    }
+
+    function loadBubles() {
         $scope.bubleArr = bubles.getAll();
         $scope.bublePages = pages.buildPages();
         console.log($scope.bubleArr);
         console.log($scope.pageArr);
-
     }
 
 
-
+    
 
     // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {
@@ -83,25 +145,11 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     }
 
 
-    $scope.openDetails = function (pageIndex, index) {
+    // $scope.openDetails = function (pageIndex, index) {
 
-        console.log("Edit buble");
-        console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-        $location.path("/editBuble/" + pageIndex + "/" + index)
-    }
-   
-
-    
-
-
-    // $scope.Elogin = function () {
-    //     //  var user = getLoggedInUser();
-    //     if (user != null) {
-    //         activeUser.login(user);
-    //         $location.path("/main")
-    //     } else {
-    //         $scope.failedAttempt = true;
-    //     }
+    //     console.log("Edit buble");
+    //     console.log("Before" + JSON.stringify($scope.bubleArr[index]));
+    //     $location.path("/editBuble/" + pageIndex + "/" + index)
     // }
 
     $scope.fromDate = "2016-05-01";

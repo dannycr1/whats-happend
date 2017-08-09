@@ -38,7 +38,7 @@ bubleApp.factory("pages", function (Page, bubles) {
 
 
     var getStyleSet = function () {
-        return "pageStyle3";
+        return "pageStyle1";
     }
 
     var updateStyleSet = function (index, value) {

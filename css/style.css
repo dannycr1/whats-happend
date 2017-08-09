@@ -27,9 +27,12 @@ margin: 0px;
 
 }
 
-img {
-    height: 30%;
-    width: 30%;
+.mainpic{
+
+}
+.bubleContent img {
+    height: 40%;
+    width: 40%;
     padding: 1px;
 }
 
@@ -117,7 +120,7 @@ margin-bottom: 10px;
 
 }
 
-.editBuble{
+.editUser{
     width: 700px;
     align-self: 10;
      /* margin-top: 260px;  */
@@ -160,3 +163,10 @@ body{
 padding-top: 185px;
 padding-bottom: 51px;
 }
+
+ .editBuble .modal-content {
+     position: fixed;
+
+ }
+
+ .bubleContent{}

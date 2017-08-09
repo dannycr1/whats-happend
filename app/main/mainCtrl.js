@@ -57,7 +57,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         return bubles.isImage(index);
     };
 
-    $scope.pageStyle = pages.getStyleSet();
+    $scope.pageStyle = "pageStyle1";
 
 
     $scope.displayPageStyle = function () {
@@ -151,7 +151,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.setPageStyle = function (value) {
         console.log("Set page style");
-        $scope.pageStyle = "pageStyle3"
+        $scope.pageStyle = value
     }
 
 });

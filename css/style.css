@@ -1,8 +1,8 @@
 .jumbotron {
     background-color:lightgreen; 
     margin-bottom: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     text-align: left;
 }
 
@@ -16,7 +16,7 @@ div .buble-item {
     font-size: 14px; 
     text-align: right;
     padding: 1px 20px;
-    margin: 1px 0 ;
+    margin: 2px 0 ;
     line-height: 70%;
 }
 
@@ -99,12 +99,31 @@ background-color: lightcoral ;
 
 
 .toNav {
-
+    margin-top: 180px; /* Add a top margin to avoid content overlay */
+    position: fixed;
     float: left;
+    background-color: yellowgreen;
+    display: block;
+    font-size: 20px;
+    padding: 10px 160px 5px 160px;
+    z-index: 10;
+
 }
 
 .editBuble{
     width: 700px;
     align-self: 10;
     
+}
+
+.fixed{
+    position: fixed;
+        top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    overflow: hidden;
+    z-index: 10;
+}
+
+.page{
+     margin-top: 230px; /* Add a top margin to avoid content overlay */
 }

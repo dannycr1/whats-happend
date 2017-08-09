@@ -46,7 +46,7 @@
 
 <body ng-controller="TestCtrl">
 
-    <div ng-controller="HomeCtrl">
+    <div class="fixed" ng-controller="HomeCtrl">
         <div class="jumbotron text-left ">
             <div class="container">
                 <h1>What'sHappend</h1>
@@ -68,9 +68,10 @@
                 <form class="navbar-form navbar-left">
                 </form>
                 <ul class="nav navbar-nav">
-                    <li ng-disabled="!isLoggedIn()"> <a  class="btn-warning btn-md" href="#!/user">Users</a></li>
-                    <!--<li ng-show="isLoggedIn()"><a href="#!" ng-click="printToCart('printSectionId')">Print</a></li>-->
-                    <li ng-print print-element-id="printThisElement"><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md" ><i class="fa fa-print"></i> Export</a></li>
+                    <!-- <li><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md" href="#!/user">Users</a></li> -->
+                    <!-- <li ng-disabled="!isLoggedIn()"><a ng-disabled="!isLoggedIn()" class="btn-warning btn-md" href="#!/user">Users</a></li> -->
+                    <li ng-print print-element-id="printThisElement"><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md"><i class="fa fa-print"></i>Export</a></li>
+                    <li><a ng-hide="!isLoggedIn()" class="btn btn-warning btn-md" href="#!/user">Users</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

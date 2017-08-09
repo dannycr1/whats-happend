@@ -184,6 +184,10 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     $scope.fromDate = "2016-05-01";
     $scope.toDate = "2016-10-20";
 
+    $scope.setPageStyle = function (value) {
+        console.log("Set page style");
+        $scope.pageStyle="pageStyle3"
+    }
 
 });
 

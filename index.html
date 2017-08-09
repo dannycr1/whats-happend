@@ -61,10 +61,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input ng-disabled="!isLoggedIn()" type="date" class="form-control" placeholder="Start Date" ng-model="nav_fromDate" value={{fromDate}}>
-                        <input ng-disabled="!isLoggedIn()" type="date" class="form-control" placeholder="End Date" ng-model="nav_toDate" value={{toDate}}>
-                    </div>
                 </form>
                 <ul class="nav navbar-nav">
                     <li ng-show="isLoggedIn()"><a href="#!/user">Users</a></li>

@@ -11,11 +11,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         popupWinindow.document.close();
     }
 
-    $scope.displayPageStyle = function () {
-        return "pageStyle1";
-    };
-
-
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
         return;
@@ -84,6 +79,13 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
 
     $scope.isImage = function (index) {
         return bubles.isImage(index);
+    };
+
+    $scope.pageStyle = pages.getStyleSet();
+
+
+    $scope.displayPageStyle = function () {
+        return $scope.pageStyle;
     };
 
     $scope.displayBuble = function (index) {

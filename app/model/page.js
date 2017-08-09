@@ -37,9 +37,8 @@ bubleApp.factory("pages", function (Page, bubles) {
     }
 
 
-    var getStyleSet = function (index) {
-        if (pageArr[0].styleSet == NaN) {return "pageStyle1"}
-        return pageArr[0].styleSet;
+    var getStyleSet = function () {
+        return "pageStyle3";
     }
 
     var updateStyleSet = function (index, value) {

@@ -65,14 +65,13 @@
                         <input ng-disabled="!isLoggedIn()" type="date" class="form-control" placeholder="Start Date" ng-model="nav_fromDate" value={{fromDate}}>
                         <input ng-disabled="!isLoggedIn()" type="date" class="form-control" placeholder="End Date" ng-model="nav_toDate" value={{toDate}}>
                     </div>
-                    <button ng-disabled="!isLoggedIn()" type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav">
                     <li ng-show="isLoggedIn()"><a href="#!/user">Users</a></li>
                     <li ng-show="isLoggedIn()"><a href="#!/page">Page</a></li>
-                </ul>
-                <button ng-disabled="!isLoggedIn()" type="submit" class="btn btn-default" ng-click="printToCart('printSectionId')">Print</button>
+                    <li ng-show="isLoggedIn()"><a href="#!" ng-click="printToCart('printSectionId')">Print</a></li>
 
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-hide="isLoggedIn()"><a class="btn btn-warning btn-md" ng-click="login()">Login</a></li>
                     <li ng-show="isLoggedIn()" ng-click="logout()"><a href="#">Logout</a></li>

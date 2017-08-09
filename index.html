@@ -68,14 +68,14 @@
                 <form class="navbar-form navbar-left">
                 </form>
                 <ul class="nav navbar-nav">
-                    <li ng-show="isLoggedIn()"><a href="#!/user">Users</a></li>
+                    <li ng-disabled="!isLoggedIn()"> <a  class="btn-warning btn-md" href="#!/user">Users</a></li>
                     <!--<li ng-show="isLoggedIn()"><a href="#!" ng-click="printToCart('printSectionId')">Print</a></li>-->
-                    <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> Print</button>
+                    <li ng-print print-element-id="printThisElement"><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md" ><i class="fa fa-print"></i> Export</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-hide="isLoggedIn()"><a class="btn btn-warning btn-md" ng-click="login()">Login</a></li>
-                    <li ng-show="isLoggedIn()" ng-click="logout()"><a href="#">Logout</a></li>
+                    <li ng-show="isLoggedIn()"><a class="btn btn-warning btn-md" ng-click="logout()" href="#!/">Logout</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -5,7 +5,7 @@ bubleApp.factory("Buble", function () {
         this.date = plainObject.date;
         this.time = plainObject.time;
         this.content = plainObject.content;
-        this.hide = false;
+        this.hide = plainObject.hide ? plainObject.hide : false;
 
         if (plainObject.media != null) { this.media = plainObject.media }
         else {

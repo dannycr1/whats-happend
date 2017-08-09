@@ -32,7 +32,12 @@
     <script src="app/main/mainCtrl.js"></script>
     <script src="app/main/editBubleCtrl.js"></script>
     <script src="app/users/usersCtrl.js"></script>
-    <script src="app/Page/pageStyleCtrl.js"></script>
+    <!--<script src="app/Page/pageStyleCtrl.js"></script>-->
+
+    <!--print-->
+
+    <link href="css/ngPrint.css">
+    <script src="app/ngPrint.js"></script>
 
 
 
@@ -64,7 +69,8 @@
                 </form>
                 <ul class="nav navbar-nav">
                     <li ng-show="isLoggedIn()"><a href="#!/user">Users</a></li>
-                    <li ng-show="isLoggedIn()"><a href="#!" ng-click="printToCart('printSectionId')">Print</a></li>
+                    <!--<li ng-show="isLoggedIn()"><a href="#!" ng-click="printToCart('printSectionId')">Print</a></li>-->
+                    <button class="btn btn-primary" ng-print print-element-id="printThisElement"><i class="fa fa-print"></i> Print</button>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

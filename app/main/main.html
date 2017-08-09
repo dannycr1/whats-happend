@@ -13,16 +13,15 @@
                     </select>
     </div>
 
-    <div id="printSectionId">
+    <div >
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix pageStyle2" ng-class="displayPageStyle()"
             ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
             <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="editBuble(buble, displayPage, $index)">
-                <div>
+                <div class="bubleContent" >
                     <h5><strong>{{buble.user}}</strong></h5>
-                    <p>{{buble.date}} {{buble.time}}</p>
+                    <p id="printThisElement">{{buble.date}} {{buble.time}}</p>
                     <p>{{buble.content}}</p>
                     <img ng-src={{buble.mediaUrl}} alt="">
-
                 </div>
             </div>
         </div>

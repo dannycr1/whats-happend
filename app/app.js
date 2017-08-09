@@ -1,4 +1,4 @@
-var bubleApp = angular.module("BubleApp", ["ngRoute", "ngAnimate", "ui.bootstrap"]);
+var bubleApp = angular.module("BubleApp", ["ngRoute", "ngAnimate", "ui.bootstrap", 'ngPrint']);
 
 bubleApp.config(function ($routeProvider) {
     $routeProvider

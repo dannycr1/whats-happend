@@ -4,6 +4,7 @@
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: left;
+    display: block;
 }
 
 .navbar-default {
@@ -29,6 +30,7 @@ margin: 0px;
 img {
     height: 30%;
     width: 30%;
+    padding: 1px;
 }
 
 .float_fix{
@@ -100,13 +102,17 @@ background-color: burlywood;
 
 
 .toNav {
-    margin-top: 180px; /* Add a top margin to avoid content overlay */
-    position: fixed;
-    float: left;
-    background-color: yellowgreen;
-    display: block;
+    /* margin-top: 180px;  Add a top margin to avoid content overlay  */
+    position: fixed;  
+    bottom: 0;
+     /* float: left;     */
+    /* background-color: yellowgreen; */
+    /* display: block;  */
     font-size: 20px;
-    padding: 10px 162px 5px 163px;
+    /* padding: 5px 162px 5px 163px;   */ 
+    margin: auto;
+margin-top: 5px ;
+margin-bottom: 10px;
     z-index: 10;
 
 }
@@ -114,13 +120,15 @@ background-color: burlywood;
 .editBuble{
     width: 700px;
     align-self: 10;
-    margin-top: 260px;
+     /* margin-top: 260px;  */
     margin-left: 100px;
     
 }
 
 .fixed{
-    position: fixed;
+    float: left;
+    position: fixed; 
+    /* position: fixed; */
         top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     overflow: hidden;
@@ -128,7 +136,7 @@ background-color: burlywood;
 }
 
 .page{
-     margin-top: 230px; /* Add a top margin to avoid content overlay */
+     /* margin-top: 230px;  Add a top margin to avoid content overlay  */
 }
 
 ul li {
@@ -137,4 +145,18 @@ list-style-type: none;
 
 .pageStyleList element.style{
     height: 33px;
+}
+
+.fixeddown{
+    position: fixed; 
+    /* position: fixed; */
+    bottom: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    overflow: hidden;
+    z-index: 10;
+}
+
+body{
+padding-top: 185px;
+padding-bottom: 51px;
 }

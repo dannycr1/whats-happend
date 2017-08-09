@@ -61,7 +61,7 @@ background-color: lightcoral ;
    background-color: red;
 }
 .style3 {
-   background-color: lightseagreen;
+   background-color: lightgreen;
      color: black;
 }
 .style4 {
@@ -90,7 +90,8 @@ background-color: lightcoral ;
 .styledate {
    background-color: whitesmoke;
      color: black;
-     text-align: center ;
+     border-color: black;
+     text-align: center ;     
 }
 
 .stylehide {
@@ -113,6 +114,8 @@ background-color: lightcoral ;
 .editBuble{
     width: 700px;
     align-self: 10;
+    margin-top: 260px;
+    margin-left: 100px;
     
 }
 
@@ -127,3 +130,7 @@ background-color: lightcoral ;
 .page{
      margin-top: 230px; /* Add a top margin to avoid content overlay */
 }
+
+ul li {
+list-style-type: none
+    }

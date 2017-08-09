@@ -2,39 +2,39 @@
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4>Set Users Style</h4>
+            <button type="button" class="close" data-dismiss="modal" ng-click="cancelEditUser()">&times;</button>
+            <h4>Users Style</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-            <form role="form">
+            <form role="form" class="form-inline">
                 <div class="users">
                     <ul>
                         <li ng-repeat="user in userArr">
-                            <span>{{user.userName}}</span>
-                            <label for="styleSet"> </label>
-                            <select ng-model="user.styleSet" ng-click="setUserStyle($index)">
-                                    <option value="1" >1</option>
-                                    <option value="2" >2</option>
-                                    <option value="3" >3</option>
-                                    <option value="4" >4</option>
-                                    <option value="5" >5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="date" >date</option>
+                            <label for="styleSet"></label>
+                            <select class="form-control" ng-model="user.styleSet" ng-click="setUserStyle($index)">
+                                    <option value="1" >Olive</option>
+                                    <option value="2" >Red</option>
+                                    <option value="3" >Light-green</option>
+                                    <option value="4" >Gray</option>
+                                    <option value="5" >Orange</option>
+                                    <option value="6">Brown</option>
+                                    <option value="7">Blue-violet</option>
+                                    <option value="8">Pink</option>
+                                    <option value="date" >White</option>
                                     </select>
-                            <label for="align"> </label>
-                            <select ng-model="user.align" ng-click="setUserAlign($index)">
-                                    <option value="left" >left</option>
-                                    <option value="" >center</option>
-                                    <option value="right" >right</option>
+                            <label for="align"></label>
+                            <select ng-model="user.align" ng-click="setUserAlign($index)" class="form-control">
+                                    <option value="left" >Left</option>
+                                    <option value="" >Center</option>
+                                    <option value="right" >Right</option>
                                     </select>
+                            <label for="align"></label>
+                            <span class="list" class="form-control">{{user.userName}}</span>
                         </li>
                     </ul>
                 </div>
+            </form>
         </div>
-
-        </form>
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-success btn-default pull-left" data-dismiss="modal" ng-click="apply()"> Apply</button>

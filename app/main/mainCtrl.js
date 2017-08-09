@@ -1,16 +1,6 @@
 bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal, Buble) {
     // If the user is not logged in going back to home screen
 
-
-
-    $scope.printToCart = function (printSectionId) {
-        var innerContents = document.getElementById(printSectionId).innerHTML;
-        var popupWinindow = window.open('', '_blank', 'width=600,height=297mm,scrollbars=no,menubar=no,toolbar=no,location=yes,status=no,titlebar=no');
-        popupWinindow.document.open();
-        popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + innerContents + '</html>');
-        popupWinindow.document.close();
-    }
-
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
         return;
@@ -52,25 +42,11 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             }
             if (result == "cancel") { pages.removeAll(); $scope.bublePages = pages.buildPages(); }
             if (result == "update") {
-                // if (buble.media == "date") {
-                //     buble.user = "DATE";
-                //     buble.content = "";
-                //     buble.time = "";
-                //     buble.styleSet = "0";
-                //     buble.mediaUrl = "";
-                // }
-                // if (buble.mediaUrl != null) {
-                //     newBuble.mediaUrl = $scope.buble.mediaUrl;
-                // }
                 bubles.update($scope.bubleIndex, buble);
                 bubles.getAll();
                 pages.removeAll();
                 $scope.bublePages = pages.buildPages();
             }
-
-
-
-
             // $scope.bublePages = pages.buildPages();
         });
         // $scope.schedule = angular.fromJson(scheduleJSON);
@@ -158,9 +134,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         console.log($scope.pageArr);
     }
 
-
-
-
     // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {
         $scope.userArr = [];
@@ -173,20 +146,12 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         // pages.addBubleToPage(pageIndex, bubles);
     }
 
-
-    // $scope.openDetails = function (pageIndex, index) {
-
-    //     console.log("Edit buble");
-    //     console.log("Before" + JSON.stringify($scope.bubleArr[index]));
-    //     $location.path("/editBuble/" + pageIndex + "/" + index)
-    // }
-
     $scope.fromDate = "2016-05-01";
     $scope.toDate = "2016-10-20";
 
     $scope.setPageStyle = function (value) {
         console.log("Set page style");
-        $scope.pageStyle="pageStyle3"
+        $scope.pageStyle = "pageStyle3"
     }
 
 });

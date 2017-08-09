@@ -9,7 +9,9 @@ bubleApp.factory("User", function () {
         this.align = plainObject.align;
         this.userName = plainObject.userName;
 
-        if (this.userName === "date") { this.styleSet = "date" } else {
+        if (this.userName === "DATE") { this.styleSet = "date" }
+        else if (this.userName === " אלון דוד") { this.styleSet = "3" }
+        else {
             this.styleSet = "1";
         }
 

@@ -6,18 +6,17 @@
         <button href="#" ng-click="displayPageIndex(-1)">Previous</button>
         <input type="number" ng-model="displayPage" value={{displayPage}} min=0 maxlength=3 max=999 size=1></input>
         <button href="#" ng-click="displayPageIndex(1)">Next</button>
-        <select ng-model="pageStyle">
-                    <option value="pageStyle1" >light-green</option>
-                    <option value="pageStyle2" >light-blue</option>
-                    <option value="pageStyle3" >light-red</option>
-                    </select>
+        <select ng-model="pageStyle" > 
+                    <option value="pageStyle1" class="pageStyleList" >Light-green</option>
+                    <option value="pageStyle2" class="pageStyleList">Light-blue</option>
+                    <option value="pageStyle3" class="pageStyleList">Light-red</option>
+        </select>
     </div>
 
     <div class="page">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix pageStyle2" ng-class="displayPageStyle()"
-            ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center float_fix pageStyle2" ng-class="displayPageStyle()" ng-repeat="buble in bublePages[displayPage] | dateRange : fromDate : toDate ">
             <div class="well buble-item float_fix" ng-class="displayBuble($index)" ng-click="editBuble(buble, displayPage, $index)">
-                <div class="bubleContent" >
+                <div class="bubleContent">
                     <h5><strong>{{buble.user}}</strong></h5>
                     <p id="printThisElement">{{buble.date}} {{buble.time}}</p>
                     <p>{{buble.content}}</p>

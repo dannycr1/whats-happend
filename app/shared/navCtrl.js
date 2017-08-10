@@ -22,8 +22,5 @@ bubleApp.controller("NavCtrl", function ($scope, $filter, activeUser, bubles, pa
             "toDate": toDate
         };
 
-        // $scope.fromDate = $filter("date")(fromDate, 'yyyy-MM-dd');
-        // $scope.toDate = $filter("date")(toDate, 'yyyy-MM-dd');
-
     }
 });

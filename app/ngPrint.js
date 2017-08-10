@@ -1,3 +1,5 @@
+// External code - see documatation at https://github.com/gilf/ngPrint 
+
 (function (angular) {
     'use strict';
 
@@ -23,7 +25,7 @@
 
             if (window.matchMedia) {
                 var mediaQueryList = window.matchMedia('print');
-                mediaQueryList.addListener(function(mql) {
+                mediaQueryList.addListener(function (mql) {
                     if (!mql.matches) {
                         afterPrint();
                     } else {

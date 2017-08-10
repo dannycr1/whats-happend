@@ -14,11 +14,10 @@ bubleApp.factory("User", function () {
         else {
             this.styleSet = "1";
         }
-
     };
-
     return User;
 });
+
 
 // Service that manges the active user
 bubleApp.factory("activeUser", function (User) {
@@ -85,6 +84,7 @@ bubleApp.factory("activeUser", function (User) {
     };
 });
 
+
 bubleApp.factory("users", function (User) {
     var userArr = [];
 
@@ -141,8 +141,5 @@ bubleApp.factory("users", function (User) {
         getName: getName,
         updateStyleSet: updateStyleSet,
         getStyleSet: getStyleSet
-
-
     }
-
 });

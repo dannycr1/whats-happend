@@ -6,7 +6,6 @@ bubleApp.factory("Buble", function () {
         this.time = plainObject.time;
         this.content = plainObject.content;
         this.hide = plainObject.hide ? plainObject.hide : false;
-
         if (plainObject.media != null) { this.media = plainObject.media }
         else {
             this.media = "text";
@@ -16,60 +15,20 @@ bubleApp.factory("Buble", function () {
             this.mediaUrl = "";
         }
         this.exactDate = Date.parse(this.date);
-
         this.bubleHeight = 18;
         this.unique = this.date + this.time;
-        // console.log("unique " + this.unique);
-
 
         if (String(this.content).indexOf("<‏מצורף>") !== -1) {
             this.media = "image";
             this.mediaUrl = "app/data/img/" + this.content.replace(" <‏מצורף>", "").replace(" ", "");
             this.content = "";
         }
-        //set bible default size bases on media type 
-        // if (this.media === "text") {
-        //     //  console.log("text");
-        //     this.bubleHeight = 20;
-        // }
-        // else if (this.media === "image") {
-        //     //    console.log("image");
-        //     var orientation,
-        //         img = new Image();
-        //     img.onload = function () {
-        //         if (img.naturalWidth > img.naturalHeight) {
-        //             orientation = 'landscape';
-        //             //     console.log("portrait");
-        //             this.bubleHeight = 95;
-        //         } else if (img.naturalWidth < img.naturalHeight) {
-        //             orientation = 'portrait';
-        //             //    console.log("landscape");
-        //             this.bubleHeight = 65;
-        //         } else {
-        //             orientation = 'other';
-        //             //    console.log("other");
-        //             this.bubleHeight = 20;
-        //         }
-        //     }
-        //     img.src = this.mediaUrl;
-        // }
-        // else if (this.media === "date") {
-        //     this.bubleHeight = 10;
-        // }
-
-
     }
     return Buble;
 });
 
 
-
-
-
-
-
-
-// need to add index
+// Service that manages the bubles
 bubleApp.factory("bubles", function (Buble) {
     var bubleArr = [];
 
@@ -122,8 +81,6 @@ bubleApp.factory("bubles", function (Buble) {
         bubleArr[index].border = newContent;
     }
 
-
-
     var remove = function (index) {
         bubleArr.splice(index, 1);
     }
@@ -154,10 +111,7 @@ bubleApp.factory("bubles", function (Buble) {
             }
             else {
                 bubleArr.push(new Buble(bublePlainObjectArr[i]))
-                //console.log("length" + bubleArr.length);
             }
-
-            //console.log(bubleArr[i]);
         }
     }
 
@@ -168,7 +122,6 @@ bubleApp.factory("bubles", function (Buble) {
     var getIndex = function (buble) {
         return bubleArr.indexOf(buble);
     }
-
 
     var get = function (index) {
         return bubleArr[index];
@@ -212,10 +165,8 @@ bubleApp.factory("bubles", function (Buble) {
         else if (bubleArr[index].media === "date") {
             bubleArr[index].bubleHeight = 8;
         }
-
         return bubleArr[index].bubleHeight;
     }
-
 
     return {
         add: add,
@@ -239,7 +190,5 @@ bubleApp.factory("bubles", function (Buble) {
         updateBubleBorderColor: updateBubleBorderColor,
         updateBubleBorder: updateBubleBorder,
         getIndex: getIndex
-
-
     }
-})
+});

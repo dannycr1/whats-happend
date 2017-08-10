@@ -32,20 +32,16 @@
     <script src="app/main/mainCtrl.js"></script>
     <script src="app/main/editBubleCtrl.js"></script>
     <script src="app/users/usersCtrl.js"></script>
-    <!--<script src="app/Page/pageStyleCtrl.js"></script>-->
 
     <!--print-->
-
     <link href="css/ngPrint.css">
     <script src="app/ngPrint.js"></script>
 
-
-
+    <!--CSS stuff-->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body ng-controller="TestCtrl">
-
+<body >
     <div class="fixed" ng-controller="HomeCtrl">
         <div class="jumbotron text-left ">
             <div class="container">
@@ -68,11 +64,8 @@
                 <form class="navbar-form navbar-left">
                 </form>
                 <ul class="nav navbar-nav">
-                    <!-- <li><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md" href="#!/user">Users</a></li> -->
-                    <!-- <li ng-disabled="!isLoggedIn()"><a ng-disabled="!isLoggedIn()" class="btn-warning btn-md" href="#!/user">Users</a></li> -->
                     <li ng-print print-element-id="printThisElement"><a ng-disabled="!isLoggedIn()" class="btn btn-warning btn-md"><i class="fa fa-print"></i>Export</a></li>
                     <li><a ng-hide="!isLoggedIn()" class="btn btn-warning btn-md" href="#!/user">Users</a></li>
-
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-hide="isLoggedIn()"><a class="btn btn-warning btn-md" ng-click="login()">Login</a></li>
@@ -82,9 +75,7 @@
             <!-- /.navbar-collapse -->
         </nav>
     </div>
-
-        <ng-view>    
-       </ng-view>   
+    <ng-view></ng-view>
 
 </body>
 

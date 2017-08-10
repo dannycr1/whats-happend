@@ -1,6 +1,5 @@
 bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, $filter, bubles, users, pages, $uibModal, Buble) {
     // If the user is not logged in going back to home screen
-
     if (!activeUser.isLoggedIn()) {
         $location.path("/");
         return;
@@ -25,9 +24,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         });
 
         modalInstance.result.then(function (result, newBuble) {
-            console.log(result + "  " + buble);
-            //$scope.newBuble = new Buble(buble);
-
             $scope.bubleIndex = bubles.getIndex(buble);
 
             if (result == "delete") { bubles.remove($scope.bubleIndex); pages.removeAll(); $scope.bublePages = pages.buildPages(); }
@@ -45,10 +41,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
                 pages.removeAll();
                 $scope.bublePages = pages.buildPages();
             }
-            // $scope.bublePages = pages.buildPages();
         });
-        // $scope.schedule = angular.fromJson(scheduleJSON);
-
     }
 
     $scope.isImage = function (index) {
@@ -56,8 +49,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     };
 
     $scope.pageStyle = "pageStyle1";
-
-
     $scope.displayPageStyle = function () {
         return $scope.pageStyle;
     };
@@ -66,14 +57,11 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         var align = "right";
         var username = "";
 
-
         for (i = 0; i < $scope.userArr.length; i++) {
             username = $scope.userArr[i].userName;
             if (pages.get($scope.displayPage).pageBubleList[index].user == username) {
                 var align = $scope.userArr[i].align;
                 var styleSet = $scope.userArr[i].styleSet;
-
-                //continue;
             }
         }
 
@@ -89,11 +77,9 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
             // center case
             return ("style" + styleSet);
         }
-
     };
 
     $scope.displayPage = 0;
-
     $scope.displayPageIndex = function (number) {
         if (($scope.displayPage + number) < 0) { number = 0; }
         return $scope.displayPage = $scope.displayPage + number;
@@ -122,14 +108,10 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     else {
         loadBubles();
     }
-    // $scope.styleSet = pages.getStyleSet(0);
-
 
     function loadBubles() {
         $scope.bubleArr = bubles.getAll();
         $scope.bublePages = pages.buildPages();
-        console.log($scope.bubleArr);
-        console.log($scope.pageArr);
     }
 
     // Making sure that we are only loading once -USERS
@@ -141,26 +123,16 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         });
     } else {
         $scope.userArr = users.getAll();
-        // pages.addBubleToPage(pageIndex, bubles);
     }
 
     $scope.fromDate = "2016-05-01";
     $scope.toDate = "2016-10-20";
-
-    // $scope.setPageStyle = function (value) {
-    //     console.log("Set page style");
-    //     $scope.pageStyle = value
-    // }
-
 });
 
 
 bubleApp.filter('dateRange', function () {
     return function (items, fromDate, toDate) {
         var filtered = [];
-        //here you will have your desired input
-        //console.log(items, fromDate, toDate);
-
         var from_date = Date.parse(fromDate) - 1000;
         var to_date = Date.parse(toDate) + 1000;
         angular.forEach(items, function (item) {
@@ -170,5 +142,4 @@ bubleApp.filter('dateRange', function () {
         });
         return filtered;
     };
-
 });

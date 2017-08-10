@@ -1,4 +1,10 @@
 bubleApp.controller('EditBubleCtrl', function ($scope, activeUser, $uibModalInstance, $location, $filter, bubles, users, pages, $routeParams, Buble, displayPage, indexBuble, buble) {
+      // If the user is not logged in going back to home screen
+    if (!activeUser.isLoggedIn()) {
+        $location.path("/");
+        return;
+    }
+  
   $scope.buble = new Buble(buble);
   $scope.bubleIndex = bubles.getIndex(buble)
 

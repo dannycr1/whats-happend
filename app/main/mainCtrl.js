@@ -82,6 +82,11 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     $scope.displayPage = 0;
     $scope.displayPageIndex = function (number) {
         if (($scope.displayPage + number) < 0) { number = 0; }
+        if (($scope.displayPage + number) >= $scope.bublePages.length) {
+            $scope.displayPage = $scope.bublePages.length-1;
+            number = 0;
+        }
+
         return $scope.displayPage = $scope.displayPage + number;
     };
 

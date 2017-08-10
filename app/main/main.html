@@ -23,7 +23,7 @@
                     <input type="date" ng-model="fromDate" value={{fromDate}}>
                     <input type="date" ng-model="toDate" value={{toDate}}>
                     <button href="#" ng-click="displayPageIndex(-1)">Previous</button>
-                    <input type="number" ng-model="displayPage" value={{displayPage}} min=0 maxlength=3 max=999 size=1></input>
+                    <input type="number" ng-model="displayPage" value={{displayPage}} min=0 ng-max="bublePages.length" size=1></input>
                     <button href="#" ng-click="displayPageIndex(1)">Next</button>
                     <select ng-model="pageStyle"> 
                     <option value="pageStyle1" class="pageStyleList">Light-green</option>

@@ -19,7 +19,7 @@ bubleApp.factory("User", function () {
 });
 
 
-// Service that manges the active user
+// Service that manages the active user
 bubleApp.factory("activeUser", function (User) {
     var activeuser = null;
 

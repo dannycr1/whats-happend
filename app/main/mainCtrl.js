@@ -5,8 +5,6 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
         $location.path("/");
         return;
     }
-    //$scope.a = "true";
-    console.log($scope);
 
     $scope.editBuble = function (buble, displayPage, indexBuble) {
         var modalInstance = $uibModal.open({

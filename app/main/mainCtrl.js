@@ -137,7 +137,7 @@ bubleApp.controller("MainCtrl", function ($scope, $http, activeUser, $location, 
     // Making sure that we are only loading once -USERS
     if (users.getAll().length === 0) {
         $scope.userArr = [];
-        $http.get("/app/data/users.json").then(function (response) {
+        $http.get("app/data/users.json").then(function (response) {
             users.load(response.data);
             $scope.userArr = users.getAll();
         });

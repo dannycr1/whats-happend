@@ -24,7 +24,7 @@ bubleApp.factory("Buble", function () {
 
         if (String(this.content).indexOf("<‏מצורף>") !== -1) {
             this.media = "image";
-            this.mediaUrl = "/app/data/img/" + this.content.replace(" <‏מצורף>", "").replace(" ", "");
+            this.mediaUrl = "app/data/img/" + this.content.replace(" <‏מצורף>", "").replace(" ", "");
             this.content = "";
         }
         //set bible default size bases on media type 
